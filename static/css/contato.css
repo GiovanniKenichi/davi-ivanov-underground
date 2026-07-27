@@ -1,0 +1,23 @@
+.contato{
+
+    padding:120px 8%;
+
+    background:#0B0B0B;
+
+}
+
+.contato-container{
+
+    margin-top:50px;
+
+}
+
+.mapa{
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    border:1px solid rgba(182,141,64,.2);
+
+}

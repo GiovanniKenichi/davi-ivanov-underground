@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Davi Ivanov
+Davi Ivanov | Barbearia
 {% endblock %}
 
 {% block content %}
 
-<h1>Bem-vindo ao Davi Ivanov</h1>
+{% include 'includes/hero.html' %}
+
+{% include 'includes/estatisticas.html' %}
+
+{% include 'includes/sobre.html' %}
+
+{% include 'includes/servicos.html' %}
+
+{% include 'includes/portfolio.html' %}
+
+{% include 'includes/contato.html' %}
 
 {% endblock %}

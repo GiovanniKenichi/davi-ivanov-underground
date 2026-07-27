@@ -1,0 +1,155 @@
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0F0F0F;
+    color:#fff;
+    line-height:1.6;
+    overflow-x:hidden;
+    padding-top:80px;
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ==========================================
+   SEÇÕES
+========================================== */
+
+section{
+    padding:90px 0;
+}
+
+section h2{
+    font-size:2.5rem;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+section p{
+    color:#bdbdbd;
+}
+
+/* ==========================================
+   TÍTULOS
+========================================== */
+
+h1{
+    font-size:3.5rem;
+    line-height:1.2;
+}
+
+h2{
+    font-size:2.5rem;
+}
+
+h3{
+    font-size:1.6rem;
+}
+
+p{
+    font-size:1rem;
+}
+
+/* ==========================================
+   LINKS
+========================================== */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+.btn{
+
+    display:inline-block;
+
+    padding:14px 28px;
+
+    background:#D4AF37;
+
+    color:#111;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn:hover{
+
+    background:#F5C84C;
+
+    transform:translateY(-3px);
+}
+
+/* ==========================================
+   IMAGENS
+========================================== */
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#121212;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#D4AF37;
+    border-radius:20px;
+}
+
+/* ==========================================
+   ANIMAÇÃO
+========================================== */
+
+.fade-up{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:.6s;
+}
+
+.fade-up.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+}

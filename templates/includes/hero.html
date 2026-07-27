@@ -1,0 +1,61 @@
+{% load static %}
+
+<section class="hero" id="hero">
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <span class="subtitle">BARBEARIA PREMIUM</span>
+
+            <h1>
+                O corte perfeito para elevar seu <span>estilo</span>.
+            </h1>
+
+            <p>
+                Atendimento exclusivo, ambiente moderno e profissionais
+                preparados para entregar o melhor visual.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="{% url 'agendamento' %}" class="btn">
+                    Agendar Agora
+                </a>
+
+                <a href="#servicos" class="btn-outline">
+                    Ver Serviços
+                </a>
+
+            </div>
+
+            <div class="hero-info">
+
+                <div>
+                    <h3>+500</h3>
+                    <span>Clientes</span>
+                </div>
+
+                <div>
+                    <h3>4.9★</h3>
+                    <span>Avaliação</span>
+                </div>
+
+                <div>
+                    <h3>5 Anos</h3>
+                    <span>Experiência</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="{% static 'images/davi.png' %}" alt="Barbeiro">
+
+        </div>
+
+    </div>
+
+</section>

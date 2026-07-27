@@ -1,0 +1,53 @@
+.stats{
+
+    padding:80px 8%;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+    background:#111;
+
+}
+
+.stat{
+
+    background:#181818;
+
+    border:1px solid rgba(182,141,64,.15);
+
+    border-radius:15px;
+
+    padding:35px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.stat:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#B68D40;
+
+}
+
+.stat h2{
+
+    color:#B68D40;
+
+    font-size:2.5rem;
+
+    margin-bottom:10px;
+
+}
+
+.stat p{
+
+    color:#cfcfcf;
+
+}

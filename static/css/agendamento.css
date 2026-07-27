@@ -1,0 +1,249 @@
+.agendamento{
+    background:#0f0f0f;
+    color:#fff;
+    min-height:100vh;
+    padding:80px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+/* TOPO */
+
+.topo{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.topo h1{
+    font-size:42px;
+    color:#C8A96A;
+    margin-bottom:10px;
+}
+
+.topo p{
+    color:#aaa;
+    font-size:18px;
+}
+
+/* PASSOS */
+
+.passos{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:60px;
+}
+
+.passo{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#222;
+    border:2px solid #444;
+    color:#999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.passo.ativo{
+    background:#C8A96A;
+    color:#111;
+    border-color:#C8A96A;
+    transform:scale(1.08);
+}
+
+.linha{
+    width:70px;
+    height:3px;
+    background:#333;
+}
+
+/* SERVIÇOS */
+
+.cards-servicos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card-servico{
+    background:#1b1b1b;
+    border:2px solid transparent;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    transition:.35s;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+}
+
+.card-servico::before{
+    content:"✂";
+    position:absolute;
+    top:18px;
+    right:20px;
+    font-size:28px;
+    opacity:.15;
+}
+
+.card-servico:hover{
+    transform:translateY(-8px);
+    border-color:#C8A96A;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.card-servico.selecionado{
+    border-color:#C8A96A;
+    background:#222;
+}
+
+.card-servico h3{
+    color:#C8A96A;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.card-servico p{
+    color:#bbb;
+    line-height:1.6;
+    min-height:60px;
+}
+
+.card-servico span{
+    display:block;
+    margin:20px 0;
+    font-size:28px;
+    color:#fff;
+    font-weight:bold;
+}
+
+.btn-selecionar{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#C8A96A;
+    color:#111;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-selecionar:hover{
+    background:#d6b676;
+}
+
+/* ETAPAS */
+
+.etapa{
+    display:none;
+    margin-top:50px;
+}
+
+.etapa.ativa{
+    display:block;
+}
+
+.etapa h2{
+    text-align:center;
+    color:#C8A96A;
+    margin-bottom:30px;
+}
+
+/* INPUTS */
+
+input{
+    width:100%;
+    padding:16px;
+    background:#181818;
+    color:#fff;
+    border:1px solid #333;
+    border-radius:10px;
+    margin-bottom:18px;
+    font-size:16px;
+    transition:.3s;
+}
+
+input:focus{
+    border-color:#C8A96A;
+    outline:none;
+}
+
+/* HORÁRIOS */
+
+.horarios{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(110px,1fr));
+    gap:15px;
+}
+
+.horarios button{
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#222;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.horarios button:hover{
+    background:#C8A96A;
+    color:#111;
+}
+
+.horarios button.selecionado{
+    background:#C8A96A;
+    color:#111;
+    font-weight:bold;
+}
+
+/* BOTÃO */
+
+.btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:10px;
+    background:#C8A96A;
+    color:#111;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    margin-top:10px;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    background:#d8ba79;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    .topo h1{
+        font-size:32px;
+    }
+
+    .passos{
+        transform:scale(.85);
+    }
+
+    .linha{
+        width:35px;
+    }
+
+    .cards-servicos{
+        grid-template-columns:1fr;
+    }
+
+}

@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Agendamento{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/agendamento.css' %}">
+
+<section class="agendamento">
+
+    <div class="container">
+
+        <div class="topo">
+            <h1>Agende seu horário</h1>
+            <p>Escolha o serviço, a data e o horário para finalizar seu agendamento.</p>
+        </div>
+
+        <!-- PASSOS -->
+
+        <div class="passos">
+
+            <div class="passo ativo" id="passo1">1</div>
+            <div class="linha"></div>
+
+            <div class="passo" id="passo2">2</div>
+            <div class="linha"></div>
+
+            <div class="passo" id="passo3">3</div>
+            <div class="linha"></div>
+
+            <div class="passo" id="passo4">4</div>
+
+        </div>
+
+        <form
+            id="formAgendamento"
+            method="POST"
+            action="{% url 'criar_agendamento' %}"
+            novalidate>
+
+            {% csrf_token %}
+
+            <input
+                type="hidden"
+                id="servicoSelecionado"
+                name="servico">
+
+            <input
+                type="hidden"
+                id="horarioSelecionado"
+                name="horario">
+
+            <!-- PASSO 1 -->
+
+            <div class="cards-servicos">
+
+                {% for servico in servicos %}
+
+                <div
+                    class="card-servico"
+                    data-id="{{ servico.id }}">
+
+                    <h3>{{ servico.nome }}</h3>
+
+                    <p>{{ servico.descricao }}</p>
+
+                    <span>R$ {{ servico.preco }}</span>
+
+                    <button
+                        type="button"
+                        class="btn-selecionar">
+
+                        Selecionar
+
+                    </button>
+
+                </div>
+
+                {% empty %}
+
+                <div class="sem-servicos">
+
+                    <p>Nenhum serviço disponível no momento.</p>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            <!-- PASSO 2 -->
+
+            <div id="etapaData" class="etapa">
+
+                <h2>Escolha a data</h2>
+
+                <input
+                    type="date"
+                    id="data"
+                    name="data"
+                    required
+                    min="{{ hoje|date:'Y-m-d' }}">
+
+            </div>
+
+            <!-- PASSO 3 -->
+
+            <div id="etapaHorario" class="etapa">
+
+                <h2>Escolha um horário</h2>
+
+                <div class="horarios"></div>
+
+            </div>
+
+            <!-- PASSO 4 -->
+
+            <div id="etapaCliente" class="etapa">
+
+                <h2>Seus dados</h2>
+
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Nome completo"
+                    required
+                    minlength="3"
+                    maxlength="60"
+                    autocomplete="name">
+
+                <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    placeholder="(11) 99999-9999"
+                    required
+                    maxlength="15"
+                    autocomplete="tel">
+
+                <button
+                    type="submit"
+                    class="btn">
+
+                    Ir para o pagamento
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<script src="{% static 'js/agendamento.js' %}"></script>
+
+{% endblock %}

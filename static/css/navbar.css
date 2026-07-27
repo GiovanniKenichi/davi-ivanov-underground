@@ -1,0 +1,102 @@
+/* ===========================
+   NAVBAR
+=========================== */
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(15,15,15,.92);
+    backdrop-filter: blur(12px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+nav{
+    max-width:1200px;
+    height:80px;
+
+    margin:auto;
+    padding:0 30px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    text-decoration:none;
+    color:#fff;
+
+    font-size:28px;
+    font-weight:700;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+
+    font-weight:500;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#d4af37;
+}
+
+.btn-agendar{
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    background:#d4af37;
+
+    color:#111 !important;
+
+    font-weight:700;
+}
+
+.btn-agendar:hover{
+
+    background:#f0c84d;
+
+    transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+
+    nav{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:20px;
+    }
+
+    .menu{
+
+        margin-top:20px;
+
+        flex-direction:column;
+
+        width:100%;
+    }
+
+    .btn-agendar{
+
+        width:100%;
+        text-align:center;
+    }
+
+}

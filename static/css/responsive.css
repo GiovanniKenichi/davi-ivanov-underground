@@ -1,0 +1,73 @@
+/* ==========================================
+   RESPONSIVO
+========================================== */
+
+@media(max-width:992px){
+
+    h1{
+        font-size:3rem;
+    }
+
+    h2{
+        font-size:2rem;
+    }
+
+    section{
+        padding:70px 0;
+    }
+
+}
+
+@media(max-width:768px){
+
+    body{
+        padding-top:90px;
+    }
+
+    .container{
+        width:92%;
+    }
+
+    h1{
+
+        font-size:2.4rem;
+        text-align:center;
+    }
+
+    h2{
+
+        font-size:1.8rem;
+        text-align:center;
+    }
+
+    p{
+
+        text-align:center;
+    }
+
+    .footer-container{
+
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+    }
+
+}
+
+@media(max-width:480px){
+
+    h1{
+        font-size:2rem;
+    }
+
+    h2{
+        font-size:1.6rem;
+    }
+
+    .btn{
+
+        width:100%;
+        text-align:center;
+    }
+
+}

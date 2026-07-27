@@ -1,0 +1,50 @@
+{% load static %}
+
+<section class="sobre" id="sobre">
+
+    <div class="sobre-container">
+
+        <div class="sobre-img">
+
+            <img src="{% static 'images/davi-about.jpg' %}" alt="Davi Ivanov">
+
+        </div>
+
+        <div class="sobre-content">
+
+            <span>SOBRE</span>
+
+            <h2>
+                Mais que um barbeiro.
+                <br>
+                Um profissional apaixonado pelo que faz.
+            </h2>
+
+            <p>
+                Cada atendimento é pensado para oferecer mais do que um corte.
+                O objetivo é proporcionar uma experiência completa, unindo técnica,
+                atenção aos detalhes e um ambiente moderno para que cada cliente
+                saia satisfeito e confiante.
+            </p>
+
+            <ul>
+
+                <li>✔ Atendimento personalizado</li>
+
+                <li>✔ Cortes modernos</li>
+
+                <li>✔ Acabamento impecável</li>
+
+                <li>✔ Ambiente confortável</li>
+
+            </ul>
+
+            <a href="{% url 'agendamento' %}" class="btn-primary">
+                Agendar Horário
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
