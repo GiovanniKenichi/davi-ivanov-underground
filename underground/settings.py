@@ -18,6 +18,10 @@ ALLOWED_HOSTS = [
     ".onrender.com",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com",
+]
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
