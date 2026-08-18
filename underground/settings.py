@@ -2,6 +2,9 @@ import os
 from pathlib import Path
 
 import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -34,7 +37,6 @@ INSTALLED_APPS = [
     "core",
     "clientes",
     "painel",
-    "pagamentos",
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,9 @@ ROOT_URLCONF = "underground.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [
+            BASE_DIR / "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -117,3 +121,20 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 ADMIN_SITE_HEADER = "Barbearia Davi Ivanov"
 ADMIN_SITE_TITLE = "Painel Administrativo"
 ADMIN_INDEX_TITLE = "Bem-vindo ao Painel"
+
+# =====================================================
+# MERCADO PAGO
+# =====================================================
+
+MERCADOPAGO_PUBLIC_KEY = os.getenv("MP_PUBLIC_KEY")
+MERCADOPAGO_ACCESS_TOKEN = os.getenv("MP_ACCESS_TOKEN")
+
+# =====================================================
+# URL DO WEBHOOK
+# (troque quando publicar no Render)
+# =====================================================
+
+MERCADOPAGO_WEBHOOK_URL = os.getenv(
+    "MP_WEBHOOK_URL",
+    "http://127.0.0.1:8000/pagamentos/webhook/"
+)

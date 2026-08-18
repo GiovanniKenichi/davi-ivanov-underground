@@ -53,8 +53,6 @@ class AgendamentoAdmin(admin.ModelAdmin):
 
     date_hierarchy = "data"
 
-    list_editable = ()
-
     readonly_fields = (
         "valor",
     )
@@ -76,7 +74,7 @@ class AgendamentoAdmin(admin.ModelAdmin):
             )
         }),
 
-        ("Pagamento", {
+        ("Informações", {
             "fields": (
                 "valor",
                 "status",
@@ -86,7 +84,7 @@ class AgendamentoAdmin(admin.ModelAdmin):
     )
 
     actions = [
-        "marcar_pago",
+        "marcar_confirmado",
         "marcar_finalizado",
         "marcar_cancelado",
     ]
@@ -95,7 +93,7 @@ class AgendamentoAdmin(admin.ModelAdmin):
 
         cores = {
             "PENDENTE": "#f1c40f",
-            "PAGO": "#2ecc71",
+            "CONFIRMADO": "#2ecc71",
             "FINALIZADO": "#3498db",
             "CANCELADO": "#e74c3c",
         }
@@ -110,10 +108,10 @@ class AgendamentoAdmin(admin.ModelAdmin):
 
     status_colorido.short_description = "Status"
 
-    @admin.action(description="Marcar como Pago")
-    def marcar_pago(self, request, queryset):
+    @admin.action(description="Marcar como Confirmado")
+    def marcar_confirmado(self, request, queryset):
 
-        queryset.update(status="PAGO")
+        queryset.update(status="CONFIRMADO")
 
     @admin.action(description="Marcar como Finalizado")
     def marcar_finalizado(self, request, queryset):

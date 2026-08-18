@@ -1,0 +1,590 @@
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    background:#0f0f0f;
+    color:#fff;
+}
+
+/* ==========================================
+   LAYOUT
+========================================== */
+
+.wrapper{
+    display:flex;
+    min-height:100vh;
+}
+
+.content{
+    flex:1;
+    padding:35px;
+    overflow:auto;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar{
+
+    width:260px;
+
+    background:#151515;
+
+    border-right:1px solid #2d2d2d;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:30px 20px;
+
+}
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.logo img{
+
+    width:160px;
+
+    margin-bottom:15px;
+
+}
+
+.logo h2{
+
+    color:#D4AF37;
+
+    font-size:24px;
+
+    margin-bottom:5px;
+
+}
+
+.logo span{
+
+    color:#888;
+
+    font-size:14px;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar ul li{
+
+    margin-bottom:15px;
+
+}
+
+.sidebar ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:15px 18px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.sidebar ul li a:hover{
+
+    background:#D4AF37;
+
+    color:#000;
+
+}
+
+.sidebar ul li a.active{
+
+    background:#D4AF37;
+
+    color:#000;
+
+    font-weight:bold;
+
+}
+
+.logout{
+
+    margin-top:30px;
+
+}
+
+.btn-sair{
+
+    display:block;
+
+    text-align:center;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    background:#D4AF37;
+
+    color:#000;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-sair:hover{
+
+    transform:translateY(-3px);
+
+}
+/* ==========================================
+   TOPBAR
+========================================== */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.topbar h1{
+
+    font-size:32px;
+
+    color:#fff;
+
+}
+
+.topbar p{
+
+    color:#888;
+
+    margin-top:5px;
+
+}
+
+/* ==========================================
+   PERFIL
+========================================== */
+
+.perfil{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.foto{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:#D4AF37;
+
+    color:#000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+
+.perfil strong{
+
+    display:block;
+
+    color:#fff;
+
+}
+
+.perfil p{
+
+    color:#999;
+
+    font-size:14px;
+
+}
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    background:#181818;
+
+    border:1px solid #2c2c2c;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 45px rgba(212,175,55,.18);
+
+}
+
+.card h2{
+
+    color:#D4AF37;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    color:#bdbdbd;
+
+}
+
+/* ==========================================
+   TABELA
+========================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+
+}
+
+thead{
+
+    background:#D4AF37;
+
+}
+
+th{
+
+    color:#000;
+
+    text-align:left;
+
+    padding:16px;
+
+}
+
+td{
+
+    padding:16px;
+
+    border-bottom:1px solid #2a2a2a;
+
+}
+
+tbody tr{
+
+    transition:.3s;
+
+}
+
+tbody tr:hover{
+
+    background:#202020;
+
+}
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+.btn{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    font-size:13px;
+
+    margin:2px;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+.btn-confirmar{
+
+    background:#27ae60;
+
+}
+
+.btn-finalizar{
+
+    background:#3498db;
+
+}
+
+.btn-cancelar{
+
+    background:#e74c3c;
+
+}
+
+.btn-excluir{
+
+    background:#555;
+
+}
+/* ==========================================
+   STATUS
+========================================== */
+
+.status{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+.status-pendente{
+
+    background:#f39c12;
+
+}
+
+.status-confirmado{
+
+    background:#2ecc71;
+
+}
+
+.status-finalizado{
+
+    background:#3498db;
+
+}
+
+.status-cancelado{
+
+    background:#e74c3c;
+
+}
+
+/* ==========================================
+   FORMULÁRIOS
+========================================== */
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:12px 15px;
+
+    background:#1d1d1d;
+
+    border:1px solid #333;
+
+    border-radius:10px;
+
+    color:#fff;
+
+    margin-bottom:15px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:#D4AF37;
+
+}
+
+button{
+
+    background:#D4AF37;
+
+    color:#000;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    opacity:.95;
+
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#D4AF37;
+
+    border-radius:10px;
+
+}
+
+/* ==========================================
+   RESPONSIVO
+========================================== */
+
+@media(max-width:900px){
+
+    .wrapper{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+    }
+
+    .topbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    table{
+
+        display:block;
+
+        overflow-x:auto;
+
+        white-space:nowrap;
+
+    }
+
+}

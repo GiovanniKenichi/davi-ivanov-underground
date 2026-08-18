@@ -1,6 +1,31 @@
 from django.urls import path
-from .views import home
+
+from . import views
 
 urlpatterns = [
-    path("", home, name="home"),
+
+    path(
+        "",
+        views.home,
+        name="home",
+    ),
+
+    path(
+        "login/",
+        views.login_admin,
+        name="login",
+    ),
+
+    path(
+        "dashboard/",
+        views.dashboard,
+        name="dashboard",
+    ),
+
+    path(
+        "logout/",
+        views.sair,
+        name="logout",
+    ),
+
 ]

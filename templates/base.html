@@ -3,10 +3,16 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{% block title %}Davi Ivanov{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
@@ -14,14 +20,17 @@
     <link rel="stylesheet" href="{% static 'css/estatisticas.css' %}">
     <link rel="stylesheet" href="{% static 'css/sobre.css' %}">
     <link rel="stylesheet" href="{% static 'css/servicos.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
     <link rel="stylesheet" href="{% static 'css/contato.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 
-    </head>
-    
+</head>
+
 <body>
+
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
 
     {% include 'includes/navbar.html' %}
 
@@ -33,6 +42,10 @@
     </main>
 
     {% include 'includes/footer.html' %}
+    <a href="{% url 'login' %}" class="admin-btn">
+    🔒
+    </a>
+    <script src="{% static 'js/main.js' %}"></script>
 
 </body>
 

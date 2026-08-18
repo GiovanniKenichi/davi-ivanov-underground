@@ -2,25 +2,29 @@
 
 <section class="hero" id="hero">
 
+    <div class="hero-bg"></div>
+
     <div class="container hero-content">
 
         <div class="hero-text">
 
-            <span class="subtitle">BARBEARIA PREMIUM</span>
+            <span class="subtitle">
+                BARBEIRO PROFISSIONAL
+            </span>
 
             <h1>
-                O corte perfeito para elevar seu <span>estilo</span>.
+                O corte perfeito para elevar seu
+                <span>estilo.</span>
             </h1>
 
             <p>
-                Atendimento exclusivo, ambiente moderno e profissionais
-                preparados para entregar o melhor visual.
+                Cortes modernos, barba impecável e atendimento de alto padrão para quem valoriza a própria imagem.
             </p>
 
             <div class="hero-buttons">
 
                 <a href="{% url 'agendamento' %}" class="btn">
-                    Agendar Agora
+                    Agendar Horário
                 </a>
 
                 <a href="#servicos" class="btn-outline">
@@ -31,19 +35,19 @@
 
             <div class="hero-info">
 
-                <div>
-                    <h3>+500</h3>
+                <div class="info-card glass">
+                    <h3>100+</h3>
                     <span>Clientes</span>
                 </div>
 
-                <div>
+                <div class="info-card glass">
                     <h3>4.9★</h3>
-                    <span>Avaliação</span>
+                    <span>Avaliações</span>
                 </div>
 
-                <div>
-                    <h3>5 Anos</h3>
-                    <span>Experiência</span>
+                <div class="info-card glass">
+                    <h3>3+</h3>
+                    <span>Anos</span>
                 </div>
 
             </div>
@@ -52,7 +56,11 @@
 
         <div class="hero-image">
 
-            <img src="{% static 'images/davi.png' %}" alt="Barbeiro">
+            <div class="circle-light"></div>
+
+            <img
+                src="{% static 'images/davi.png' %}"
+                alt="Davi Ivanov">
 
         </div>
 

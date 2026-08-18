@@ -1,47 +1,62 @@
 {% load static %}
 
-<section class="sobre" id="sobre">
+<section class="sobre section" id="sobre">
 
-    <div class="sobre-container">
+    <div class="container">
 
-        <div class="sobre-img">
+        <div class="sobre-grid">
 
-            <img src="{% static 'images/davi-about.jpg' %}" alt="Davi Ivanov">
+            <div class="sobre-img">
 
-        </div>
+                <img src="{% static 'images/sobre.jpg' %}" alt="Barbeiro">
 
-        <div class="sobre-content">
+                <div class="experience">
+                    <h2>3+</h2>
+                    <span>Anos de Experiência</span>
+                </div>
 
-            <span>SOBRE</span>
+            </div>
 
-            <h2>
-                Mais que um barbeiro.
-                <br>
-                Um profissional apaixonado pelo que faz.
-            </h2>
+            <div class="sobre-text">
 
-            <p>
-                Cada atendimento é pensado para oferecer mais do que um corte.
-                O objetivo é proporcionar uma experiência completa, unindo técnica,
-                atenção aos detalhes e um ambiente moderno para que cada cliente
-                saia satisfeito e confiante.
-            </p>
+                <span class="section-subtitle">
+                    SOBRE MIM
+                </span>
 
-            <ul>
+                <h2>
+                    Muito mais que uma barbearia.
+                </h2>
 
-                <li>✔ Atendimento personalizado</li>
+                <p>
+                    Eu, Davi Ivanov, acredito que cada cliente merece um atendimento exclusivo.
+                    Trabalho com as técnicas mais modernas, produtos de alta qualidade e um ambiente pensado para proporcionar conforto e confiança.
+                </p>
 
-                <li>✔ Cortes modernos</li>
+                <div class="sobre-list">
 
-                <li>✔ Acabamento impecável</li>
+                    <div>
+                        ✔ Atendimento Personalizado
+                    </div>
 
-                <li>✔ Ambiente confortável</li>
+                    <div>
+                        ✔ Ambiente Premium
+                    </div>
 
-            </ul>
+                    <div>
+                        ✔ Produtos Profissionais
+                    </div>
 
-            <a href="{% url 'agendamento' %}" class="btn-primary">
-                Agendar Horário
-            </a>
+                    <div>
+                        ✔ Horário Agendado
+                    </div>
+
+                </div>
+
+                <a href="#contato" class="btn">
+                    Agende Agora
+                </a>
+
+            </div>
 
         </div>
 

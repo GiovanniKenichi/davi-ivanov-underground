@@ -1,23 +1,225 @@
+/*==============================
+CONTATO
+==============================*/
+
 .contato{
 
-    padding:120px 8%;
+    padding:120px 0;
 
-    background:#0B0B0B;
-
-}
-
-.contato-container{
-
-    margin-top:50px;
+    background:#0c0c0c;
 
 }
 
-.mapa{
+.contato-grid{
 
-    overflow:hidden;
+    display:grid;
 
-    border-radius:20px;
+    grid-template-columns:1fr 1fr;
 
-    border:1px solid rgba(182,141,64,.2);
+    gap:50px;
+
+    margin-top:70px;
+
+}
+
+/*==============================
+INFORMAÇÕES
+==============================*/
+
+.contato-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+.info-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    padding:30px;
+
+    background:#151515;
+
+    border-radius:22px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.35s;
+
+}
+
+.info-box:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#D4AF37;
+
+    box-shadow:0 20px 40px rgba(212,175,55,.12);
+
+}
+
+.icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:18px;
+
+    background:#D4AF37;
+
+    color:#111;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:32px;
+
+    flex-shrink:0;
+
+}
+
+.info-box h3{
+
+    color:#fff;
+
+    font-size:24px;
+
+    margin-bottom:8px;
+
+}
+
+.info-box p{
+
+    color:#bfbfbf;
+
+    line-height:30px;
+
+}
+
+/*==============================
+CARD
+==============================*/
+
+.contato-card{
+
+    background:#151515;
+
+    border-radius:24px;
+
+    padding:55px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.contato-card h3{
+
+    color:#fff;
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+}
+
+.contato-card p{
+
+    color:#c2c2c2;
+
+    line-height:34px;
+
+    margin-bottom:45px;
+
+}
+
+.btn-whatsapp{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    max-width:320px;
+
+    height:65px;
+
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#D4AF37,#f1d368);
+
+    color:#111;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+}
+
+.btn-whatsapp:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 20px 40px rgba(212,175,55,.25);
+
+}
+
+/*==============================
+RESPONSIVO
+==============================*/
+
+@media(max-width:1000px){
+
+.contato{
+
+padding:80px 0;
+
+}
+
+.contato-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.contato-card{
+
+padding:40px 30px;
+
+}
+
+.contato-card h3{
+
+font-size:32px;
+
+}
 
 }

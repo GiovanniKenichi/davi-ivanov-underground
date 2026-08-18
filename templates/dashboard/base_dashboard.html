@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Dashboard{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+
+                <img src="{% static 'images/dashboard.png' %}" alt="Logo">
+
+                <h2>Davi Ivanov</h2>
+
+                <span>Barbearia Premium</span>
+
+            </div>
+
+            <ul>
+
+    <li>
+        <a href="{% url 'dashboard' %}"
+           class="{% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+            📊 Dashboard
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'painel_agendamentos' %}"
+           class="{% if request.resolver_match.url_name == 'painel_agendamentos' %}active{% endif %}">
+            📅 Agendamentos
+        </a>
+    </li>
+
+</ul>
+
+        </div>
+
+        <div class="logout">
+
+            <a href="{% url 'logout' %}" class="btn-sair">
+                🚪 Sair
+            </a>
+
+        </div>
+
+    </aside>
+
+    <main class="content">
+
+        <div class="topbar">
+
+            <div>
+
+                <h1>
+
+                    {% block titulo %}
+                    {% endblock %}
+
+                </h1>
+
+                <p>Painel Administrativo</p>
+
+            </div>
+
+            <div class="perfil">
+
+                <div class="foto">
+
+                    {{ request.user.username|first|upper }}
+
+                </div>
+
+                <div>
+
+                    <strong>{{ request.user.username }}</strong>
+
+                    <p>Administrador</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

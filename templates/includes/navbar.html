@@ -1,23 +1,41 @@
-<header>
-    <nav>
+<header class="header">
 
-        <a href="{% url 'home' %}" class="logo">
-            Davi Ivanov
-        </a>
+    <div class="container">
 
-        <div class="menu">
+        <nav class="navbar">
 
-            <a href="{% url 'home' %}">Início</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#portfolio">Portfólio</a>
-            <a href="#contato">Contato</a>
+            <a href="{% url 'home' %}" class="logo">
 
-            <a href="{% url 'agendamento' %}" class="btn-agendar">
-                Agendar Horário
+                <div class="logo-icon">
+                    ✂
+                </div>
+
+                <div class="logo-text">
+
+                    <h2>Davi Ivanov</h2>
+
+                    <span>BARBEIRO PROFISSIONAL</span>
+
+                </div>
+
             </a>
 
-        </div>
+            <ul class="menu">
 
-    </nav>
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+
+            </ul>
+
+            <a href="{% url 'agendamento' %}" class="btn-navbar">
+                Agendar
+            </a>
+
+        </nav>
+
+    </div>
+
 </header>

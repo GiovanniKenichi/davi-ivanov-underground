@@ -1,0 +1,186 @@
+{% extends "dashboard/base_dashboard.html" %}
+
+{% block title %}Agendamentos{% endblock %}
+
+{% block titulo %}
+Agendamentos
+{% endblock %}
+
+{% block content %}
+
+<div class="cards">
+
+    <div class="card">
+        <h2>{{ agendamentos|length }}</h2>
+        <p>Total de Agendamentos</p>
+    </div>
+
+    <div class="card">
+        <h2>💈</h2>
+        <p>Underground Barbearia</p>
+    </div>
+
+    <div class="card">
+        <h2>📅</h2>
+        <p>Painel Administrativo</p>
+    </div>
+
+    <div class="card">
+        <h2>👤</h2>
+        <p>{{ request.user.username }}</p>
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2 style="margin-bottom:20px;">
+        Lista de Agendamentos
+    </h2>
+
+    <input
+        type="text"
+        id="pesquisa"
+        placeholder="Pesquisar cliente..."
+    >
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Cliente</th>
+                <th>Telefone</th>
+                <th>Serviço</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Status</th>
+                <th>Ações</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for agendamento in agendamentos %}
+
+            <tr>
+
+                <td>{{ agendamento.nome }}</td>
+
+                <td>{{ agendamento.telefone }}</td>
+
+                <td>{{ agendamento.servico.nome }}</td>
+
+                <td>{{ agendamento.data|date:"d/m/Y" }}</td>
+
+                <td>{{ agendamento.horario|time:"H:i" }}</td>
+
+                <td>
+
+                    {% if agendamento.status == "PENDENTE" %}
+
+                        <span class="status status-pendente">
+                            Pendente
+                        </span>
+
+                    {% elif agendamento.status == "CONFIRMADO" %}
+
+                        <span class="status status-confirmado">
+                            Confirmado
+                        </span>
+
+                    {% elif agendamento.status == "FINALIZADO" %}
+
+                        <span class="status status-finalizado">
+                            Finalizado
+                        </span>
+
+                    {% else %}
+
+                        <span class="status status-cancelado">
+                            Cancelado
+                        </span>
+
+                    {% endif %}
+
+                </td>
+
+                <td>
+
+                    <a class="btn btn-confirmar"
+                       href="{% url 'confirmar_agendamento' agendamento.id %}">
+                        Confirmar
+                    </a>
+
+                    <a class="btn btn-finalizar"
+                       href="{% url 'finalizar_agendamento' agendamento.id %}">
+                        Finalizar
+                    </a>
+
+                    <a class="btn btn-cancelar"
+                       href="{% url 'cancelar_agendamento' agendamento.id %}">
+                        Cancelar
+                    </a>
+
+                    <a class="btn btn-excluir"
+                       href="{% url 'excluir_agendamento' agendamento.id %}"
+                       onclick="return confirm('Deseja realmente excluir este agendamento?')">
+                        Excluir
+                    </a>
+
+                </td>
+
+            </tr>
+
+        {% empty %}
+
+            <tr>
+
+                <td colspan="7" style="text-align:center;padding:40px;">
+
+                    Nenhum agendamento encontrado.
+
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script>
+
+const pesquisa = document.getElementById("pesquisa");
+
+pesquisa.addEventListener("keyup", function(){
+
+    let valor = this.value.toLowerCase();
+
+    let linhas = document.querySelectorAll("tbody tr");
+
+    linhas.forEach(function(linha){
+
+        if(linha.innerText.toLowerCase().includes(valor)){
+
+            linha.style.display="";
+
+        }else{
+
+            linha.style.display="none";
+
+        }
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

@@ -1,13 +1,15 @@
 from django.db import models
 
 
-from django.db import models
-
 class Servico(models.Model):
 
-    nome = models.CharField(max_length=100)
+    nome = models.CharField(
+        max_length=100
+    )
 
-    descricao = models.TextField(blank=True)
+    descricao = models.TextField(
+        blank=True
+    )
 
     preco = models.DecimalField(
         max_digits=8,
@@ -25,54 +27,56 @@ class Servico(models.Model):
 
 class Agendamento(models.Model):
 
-    STATUS = (
+    STATUS_CHOICES = [
         ("PENDENTE", "Pendente"),
-        ("PAGO", "Pago"),
+        ("CONFIRMADO", "Confirmado"),
         ("FINALIZADO", "Finalizado"),
         ("CANCELADO", "Cancelado"),
+    ]
+
+    nome = models.CharField(
+        max_length=100
     )
 
-    nome = models.CharField("Nome", max_length=120)
-    telefone = models.CharField("Telefone", max_length=20)
+    telefone = models.CharField(
+        max_length=20
+    )
 
     servico = models.ForeignKey(
         Servico,
-        on_delete=models.CASCADE,
-        related_name="agendamentos",
-        verbose_name="Serviço",
+        on_delete=models.CASCADE
     )
 
-    data = models.DateField("Data")
-    horario = models.TimeField("Horário")
+    data = models.DateField()
+
+    horario = models.TimeField()
 
     valor = models.DecimalField(
-        "Valor",
-        max_digits=8,
+        max_digits=10,
         decimal_places=2,
-        default=0,
+        default=0
     )
 
     status = models.CharField(
-        "Status",
         max_length=20,
-        choices=STATUS,
-        default="PENDENTE",
-    )
-
-    pagamento_id = models.CharField(
-        "ID do Pagamento",
-        max_length=100,
-        blank=True,
-        null=True,
+        choices=STATUS_CHOICES,
+        default="PENDENTE"
     )
 
     criado_em = models.DateTimeField(
-        "Criado em",
-        auto_now_add=True,
+        auto_now_add=True
+    )
+
+    atualizado_em = models.DateTimeField(
+        auto_now=True
     )
 
     class Meta:
-        ordering = ["data", "horario"]
+
+        ordering = [
+            "data",
+            "horario",
+        ]
 
         indexes = [
             models.Index(fields=["data"]),
@@ -82,7 +86,7 @@ class Agendamento(models.Model):
         constraints = [
             models.UniqueConstraint(
                 fields=["data", "horario"],
-                name="horario_unico",
+                name="horario_unico"
             )
         ]
 
@@ -90,10 +94,16 @@ class Agendamento(models.Model):
         verbose_name_plural = "Agendamentos"
 
     def save(self, *args, **kwargs):
+
         if self.servico_id:
             self.valor = self.servico.preco
 
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.nome} - {self.servico.nome} ({self.data} {self.horario})"
+
+        return (
+            f"{self.nome} - "
+            f"{self.servico.nome} - "
+            f"{self.data} {self.horario}"
+        )

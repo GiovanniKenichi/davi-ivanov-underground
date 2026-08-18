@@ -1,12 +1,11 @@
-/* ==========================================
-   RESET
-========================================== */
+/*=============================
+RESET
+=============================*/
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    scroll-behavior:smooth;
 }
 
 html{
@@ -14,142 +13,247 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#0F0F0F;
+
+    background:#090909;
+
     color:#fff;
-    line-height:1.6;
+
+    font-family:'Poppins',sans-serif;
+
     overflow-x:hidden;
-    padding-top:80px;
+
 }
 
-/* ==========================================
-   CONTAINER
-========================================== */
+img{
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+    display:block;
+
+    max-width:100%;
+
 }
-
-/* ==========================================
-   SEÇÕES
-========================================== */
-
-section{
-    padding:90px 0;
-}
-
-section h2{
-    font-size:2.5rem;
-    margin-bottom:20px;
-    text-align:center;
-}
-
-section p{
-    color:#bdbdbd;
-}
-
-/* ==========================================
-   TÍTULOS
-========================================== */
-
-h1{
-    font-size:3.5rem;
-    line-height:1.2;
-}
-
-h2{
-    font-size:2.5rem;
-}
-
-h3{
-    font-size:1.6rem;
-}
-
-p{
-    font-size:1rem;
-}
-
-/* ==========================================
-   LINKS
-========================================== */
 
 a{
+
     text-decoration:none;
+
     color:inherit;
+
 }
 
-/* ==========================================
-   BOTÕES
-========================================== */
+ul{
+
+    list-style:none;
+
+}
+
+.container{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+}
+
+/*=============================
+SEÇÕES
+=============================*/
+
+section{
+
+    padding:120px 0;
+
+}
+
+/*=============================
+TÍTULOS
+=============================*/
+
+h1,h2,h3,h4{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-weight:700;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.section-title span{
+
+    display:block;
+
+    color:#D4AF37;
+
+    letter-spacing:5px;
+
+    font-size:14px;
+
+    margin-bottom:18px;
+
+}
+
+.section-title h2{
+
+    font-size:60px;
+
+    margin-bottom:25px;
+
+}
+
+.section-title p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#bdbdbd;
+
+    line-height:34px;
+
+}
+
+/*=============================
+BOTÃO PADRÃO
+=============================*/
 
 .btn{
 
-    display:inline-block;
+    display:inline-flex;
 
-    padding:14px 28px;
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px 42px;
 
     background:#D4AF37;
 
     color:#111;
 
-    border-radius:8px;
+    border-radius:14px;
 
-    font-weight:bold;
+    font-weight:700;
 
-    transition:.3s;
+    transition:.35s;
+
 }
 
 .btn:hover{
 
-    background:#F5C84C;
+    transform:translateY(-5px);
 
-    transform:translateY(-3px);
+    box-shadow:0 20px 40px rgba(212,175,55,.25);
+
 }
 
-/* ==========================================
-   IMAGENS
-========================================== */
+.btn-outline{
 
-img{
-    max-width:100%;
-    display:block;
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px 42px;
+
+    border:2px solid #D4AF37;
+
+    color:#D4AF37;
+
+    border-radius:14px;
+
+    transition:.35s;
+
 }
 
-/* ==========================================
-   SCROLLBAR
-========================================== */
+.btn-outline:hover{
+
+    background:#D4AF37;
+
+    color:#111;
+
+}
+
+/*=============================
+CURSOR
+=============================*/
+
+#cursor{
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    background:#D4AF37;
+
+    position:fixed;
+
+    z-index:999999;
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+}
+
+#cursor-blur{
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:50%;
+
+    background:#d4af3720;
+
+    position:fixed;
+
+    filter:blur(80px);
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+/*=============================
+SCROLL
+=============================*/
 
 ::-webkit-scrollbar{
-    width:8px;
-}
 
-::-webkit-scrollbar-track{
-    background:#121212;
+    width:8px;
+
 }
 
 ::-webkit-scrollbar-thumb{
+
     background:#D4AF37;
-    border-radius:20px;
+
 }
 
-/* ==========================================
-   ANIMAÇÃO
-========================================== */
+::-webkit-scrollbar-track{
 
-.fade-up{
+    background:#111;
 
-    opacity:0;
-
-    transform:translateY(30px);
-
-    transition:.6s;
 }
 
-.fade-up.show{
+/*=============================
+ANIMAÇÕES
+=============================*/
+
+section{
 
     opacity:1;
 
-    transform:translateY(0);
+    transform:none;
+
 }
