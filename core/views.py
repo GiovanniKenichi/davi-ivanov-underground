@@ -1,4 +1,6 @@
-from django.contrib.auth import authenticate, login, logout
+import os
+
+from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
@@ -84,16 +86,13 @@ def dashboard(request):
     ).count()
 
     faturamento = sum(
-
         item.valor
-
         for item in agendamentos.filter(
             status__in=[
                 "CONFIRMADO",
                 "FINALIZADO",
             ]
         )
-
     )
 
     ultimos = agendamentos.order_by(
@@ -125,3 +124,79 @@ def sair(request):
     logout(request)
 
     return redirect("login")
+
+
+# ==========================================
+# RECUPERAÇÃO TEMPORÁRIA DO ADMIN
+# ==========================================
+
+def recuperar_admin(request):
+
+    token_url = request.GET.get("token")
+
+    token_correto = os.environ.get(
+        "ADMIN_RESET_TOKEN"
+    )
+
+    nova_senha = os.environ.get(
+        "ADMIN_NEW_PASSWORD"
+    )
+
+    if not token_correto or not nova_senha:
+
+        return render(
+            request,
+            "dashboard/reset_result.html",
+            {
+                "mensagem": "Recuperação não configurada."
+            },
+        )
+
+    if token_url != token_correto:
+
+        return render(
+            request,
+            "dashboard/reset_result.html",
+            {
+                "mensagem": "Token inválido."
+            },
+        )
+
+    User = get_user_model()
+
+    try:
+
+        usuario = User.objects.get(
+            username="admin"
+        )
+
+    except User.DoesNotExist:
+
+        return render(
+            request,
+            "dashboard/reset_result.html",
+            {
+                "mensagem": "Usuário admin não encontrado."
+            },
+        )
+
+    usuario.set_password(
+        nova_senha
+    )
+
+    usuario.is_staff = True
+    usuario.is_superuser = True
+    usuario.is_active = True
+
+    usuario.save()
+
+    return render(
+        request,
+        "dashboard/reset_result.html",
+        {
+            "mensagem": (
+                "Senha do administrador alterada "
+                "com sucesso."
+            )
+        },
+    )

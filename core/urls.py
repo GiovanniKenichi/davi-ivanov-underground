@@ -28,4 +28,10 @@ urlpatterns = [
         name="logout",
     ),
 
+    path(
+        "recuperar-admin/",
+        views.recuperar_admin,
+        name="recuperar_admin",
+    ),
+
 ]

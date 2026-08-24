@@ -1,7 +1,11 @@
 from django.contrib import admin
-from django.utils.html import format_html
 
-from .models import Servico, Agendamento
+from .models import (
+    Agendamento,
+    Servico,
+    DisponibilidadeSemanal,
+    BloqueioSemanal,
+)
 
 
 @admin.register(Servico)
@@ -17,10 +21,6 @@ class ServicoAdmin(admin.ModelAdmin):
         "nome",
     )
 
-    ordering = (
-        "nome",
-    )
-
 
 @admin.register(Agendamento)
 class AgendamentoAdmin(admin.ModelAdmin):
@@ -31,8 +31,8 @@ class AgendamentoAdmin(admin.ModelAdmin):
         "servico",
         "data",
         "horario",
+        "status",
         "valor",
-        "status_colorido",
     )
 
     list_filter = (
@@ -47,78 +47,43 @@ class AgendamentoAdmin(admin.ModelAdmin):
     )
 
     ordering = (
-        "-data",
+        "data",
         "horario",
     )
 
-    date_hierarchy = "data"
 
-    readonly_fields = (
-        "valor",
+@admin.register(DisponibilidadeSemanal)
+class DisponibilidadeSemanalAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "dia_semana",
+        "ativo",
+        "horario_inicio",
+        "horario_fim",
     )
 
-    fieldsets = (
-
-        ("Cliente", {
-            "fields": (
-                "nome",
-                "telefone",
-            )
-        }),
-
-        ("Agendamento", {
-            "fields": (
-                "servico",
-                "data",
-                "horario",
-            )
-        }),
-
-        ("Informações", {
-            "fields": (
-                "valor",
-                "status",
-            )
-        }),
-
+    list_filter = (
+        "ativo",
+        "dia_semana",
     )
 
-    actions = [
-        "marcar_confirmado",
-        "marcar_finalizado",
-        "marcar_cancelado",
-    ]
 
-    def status_colorido(self, obj):
+@admin.register(BloqueioSemanal)
+class BloqueioSemanalAdmin(admin.ModelAdmin):
 
-        cores = {
-            "PENDENTE": "#f1c40f",
-            "CONFIRMADO": "#2ecc71",
-            "FINALIZADO": "#3498db",
-            "CANCELADO": "#e74c3c",
-        }
+    list_display = (
+        "dia_semana",
+        "horario_inicio",
+        "horario_fim",
+        "descricao",
+        "ativo",
+    )
 
-        cor = cores.get(obj.status, "#999")
+    list_filter = (
+        "ativo",
+        "dia_semana",
+    )
 
-        return format_html(
-            '<strong style="color:{};">{}</strong>',
-            cor,
-            obj.status
-        )
-
-    status_colorido.short_description = "Status"
-
-    @admin.action(description="Marcar como Confirmado")
-    def marcar_confirmado(self, request, queryset):
-
-        queryset.update(status="CONFIRMADO")
-
-    @admin.action(description="Marcar como Finalizado")
-    def marcar_finalizado(self, request, queryset):
-
-        queryset.update(status="FINALIZADO")
-
-    @admin.action(description="Marcar como Cancelado")
-    def marcar_cancelado(self, request, queryset):
-
-        queryset.update(status="CANCELADO")
+    search_fields = (
+        "descricao",
+    )

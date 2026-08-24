@@ -25,6 +25,129 @@ class Servico(models.Model):
         return self.nome
 
 
+class DisponibilidadeSemanal(models.Model):
+
+    DIAS_SEMANA = [
+        (0, "Segunda-feira"),
+        (1, "Terça-feira"),
+        (2, "Quarta-feira"),
+        (3, "Quinta-feira"),
+        (4, "Sexta-feira"),
+        (5, "Sábado"),
+        (6, "Domingo"),
+    ]
+
+    dia_semana = models.PositiveSmallIntegerField(
+        choices=DIAS_SEMANA,
+        unique=True
+    )
+
+    ativo = models.BooleanField(
+        default=True,
+        verbose_name="Atende neste dia"
+    )
+
+    horario_inicio = models.TimeField(
+        default="09:00",
+        verbose_name="Início"
+    )
+
+    horario_fim = models.TimeField(
+        default="18:00",
+        verbose_name="Fim"
+    )
+
+    def __str__(self):
+
+        dia = dict(self.DIAS_SEMANA).get(
+            self.dia_semana
+        )
+
+        if not self.ativo:
+            return f"{dia} - Fechado"
+
+        return (
+            f"{dia} - "
+            f"{self.horario_inicio.strftime('%H:%M')} "
+            f"às "
+            f"{self.horario_fim.strftime('%H:%M')}"
+        )
+
+    class Meta:
+
+        ordering = [
+            "dia_semana"
+        ]
+
+        verbose_name = "Disponibilidade Semanal"
+
+        verbose_name_plural = "Disponibilidade Semanal"
+
+
+class BloqueioSemanal(models.Model):
+
+    DIAS_SEMANA = [
+        (0, "Segunda-feira"),
+        (1, "Terça-feira"),
+        (2, "Quarta-feira"),
+        (3, "Quinta-feira"),
+        (4, "Sexta-feira"),
+        (5, "Sábado"),
+        (6, "Domingo"),
+    ]
+
+    dia_semana = models.PositiveSmallIntegerField(
+        choices=DIAS_SEMANA,
+        verbose_name="Dia da semana"
+    )
+
+    horario_inicio = models.TimeField(
+        verbose_name="Horário inicial"
+    )
+
+    horario_fim = models.TimeField(
+        verbose_name="Horário final"
+    )
+
+    descricao = models.CharField(
+        max_length=200,
+        blank=True,
+        verbose_name="Motivo"
+    )
+
+    ativo = models.BooleanField(
+        default=True
+    )
+
+    criado_em = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    def __str__(self):
+
+        dia = dict(self.DIAS_SEMANA).get(
+            self.dia_semana
+        )
+
+        return (
+            f"{dia} - "
+            f"{self.horario_inicio.strftime('%H:%M')} "
+            f"às "
+            f"{self.horario_fim.strftime('%H:%M')}"
+        )
+
+    class Meta:
+
+        ordering = [
+            "dia_semana",
+            "horario_inicio",
+        ]
+
+        verbose_name = "Bloqueio Semanal"
+
+        verbose_name_plural = "Bloqueios Semanais"
+
+
 class Agendamento(models.Model):
 
     STATUS_CHOICES = [
@@ -91,6 +214,7 @@ class Agendamento(models.Model):
         ]
 
         verbose_name = "Agendamento"
+
         verbose_name_plural = "Agendamentos"
 
     def save(self, *args, **kwargs):
