@@ -142,6 +142,7 @@ def recuperar_admin(request):
         "ADMIN_NEW_PASSWORD"
     )
 
+    # Verifica se as variáveis existem no Render
     if not token_correto or not nova_senha:
 
         return render(
@@ -152,6 +153,7 @@ def recuperar_admin(request):
             },
         )
 
+    # Verifica o token
     if token_url != token_correto:
 
         return render(
@@ -162,23 +164,20 @@ def recuperar_admin(request):
             },
         )
 
+    # ==========================================
+    # CRIA OU ATUALIZA O ADMIN
+    # ==========================================
+
     User = get_user_model()
 
-    try:
-
-        usuario = User.objects.get(
-            username="admin"
-        )
-
-    except User.DoesNotExist:
-
-        return render(
-            request,
-            "dashboard/reset_result.html",
-            {
-                "mensagem": "Usuário admin não encontrado."
-            },
-        )
+    usuario, criado = User.objects.get_or_create(
+        username="admin",
+        defaults={
+            "is_staff": True,
+            "is_superuser": True,
+            "is_active": True,
+        },
+    )
 
     usuario.set_password(
         nova_senha
@@ -190,12 +189,16 @@ def recuperar_admin(request):
 
     usuario.save()
 
+    # ==========================================
+    # RESULTADO
+    # ==========================================
+
     return render(
         request,
         "dashboard/reset_result.html",
         {
             "mensagem": (
-                "Senha do administrador alterada "
+                "Administrador criado/atualizado "
                 "com sucesso."
             )
         },
