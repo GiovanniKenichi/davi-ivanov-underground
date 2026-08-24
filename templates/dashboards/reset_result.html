@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrador</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #0b0b0b;
+            color: #fff;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            width: 90%;
+            max-width: 500px;
+
+            padding: 40px;
+
+            text-align: center;
+
+            background: #151515;
+
+            border: 1px solid #2b2b2b;
+
+            border-radius: 15px;
+        }
+
+        h1 {
+            color: #D4AF37;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        a {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 12px 25px;
+
+            background: #D4AF37;
+
+            color: #000;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>Administrador</h1>
+
+        <p>{{ mensagem }}</p>
+
+        <a href="/login/">
+            Ir para o Login
+        </a>
+
+    </div>
+
+</body>
+
+</html>
