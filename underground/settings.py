@@ -16,13 +16,13 @@ SECRET_KEY = os.getenv(
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = [
-    "127.0.0.1",
+    "davi-ivanov-underground-1.onrender.com",
     "localhost",
-    ".onrender.com",
+    "127.0.0.1",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.onrender.com",
+     "https://davi-ivanov-underground-1.onrender.com",
 ]
 
 INSTALLED_APPS = [
@@ -121,20 +121,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 ADMIN_SITE_HEADER = "Barbearia Davi Ivanov"
 ADMIN_SITE_TITLE = "Painel Administrativo"
 ADMIN_INDEX_TITLE = "Bem-vindo ao Painel"
-
-# =====================================================
-# MERCADO PAGO
-# =====================================================
-
-MERCADOPAGO_PUBLIC_KEY = os.getenv("MP_PUBLIC_KEY")
-MERCADOPAGO_ACCESS_TOKEN = os.getenv("MP_ACCESS_TOKEN")
-
-# =====================================================
-# URL DO WEBHOOK
-# (troque quando publicar no Render)
-# =====================================================
-
-MERCADOPAGO_WEBHOOK_URL = os.getenv(
-    "MP_WEBHOOK_URL",
-    "http://127.0.0.1:8000/pagamentos/webhook/"
-)
