@@ -28,13 +28,14 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 
 ALLOWED_HOSTS = [
+    "davi-ivanov-underground.onrender.com",
     "davi-ivanov-underground-1.onrender.com",
     "localhost",
     "127.0.0.1",
 ]
 
-
 CSRF_TRUSTED_ORIGINS = [
+    "https://davi-ivanov-underground.onrender.com",
     "https://davi-ivanov-underground-1.onrender.com",
 ]
 
