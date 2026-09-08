@@ -41,21 +41,15 @@ def login_admin(request):
 
     if request.user.is_authenticated:
 
-        return redirect(
-            "dashboard"
-        )
+        return redirect("dashboard")
 
     erro = None
 
     if request.method == "POST":
 
-        usuario = request.POST.get(
-            "usuario"
-        )
+        usuario = request.POST.get("usuario")
 
-        senha = request.POST.get(
-            "senha"
-        )
+        senha = request.POST.get("senha")
 
         user = authenticate(
             request,
@@ -70,13 +64,9 @@ def login_admin(request):
                 user
             )
 
-            return redirect(
-                "dashboard"
-            )
+            return redirect("dashboard")
 
-        erro = (
-            "Usuário ou senha inválidos."
-        )
+        erro = "Usuário ou senha inválidos."
 
     return render(
         request,
@@ -134,6 +124,21 @@ def dashboard(request):
     )
 
     # ==========================================
+    # GARANTE OS 7 DIAS DA SEMANA
+    # ==========================================
+
+    for dia in range(7):
+
+        DisponibilidadeSemanal.objects.get_or_create(
+            dia_semana=dia,
+            defaults={
+                "ativo": True,
+                "horario_inicio": "09:00",
+                "horario_fim": "18:00",
+            }
+        )
+
+    # ==========================================
     # DISPONIBILIDADE SEMANAL
     # ==========================================
 
@@ -150,6 +155,10 @@ def dashboard(request):
             ativo=True
         )
     )
+
+    # ==========================================
+    # ENVIA DADOS PARA O DASHBOARD
+    # ==========================================
 
     return render(
         request,
