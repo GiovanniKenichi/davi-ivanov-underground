@@ -1,0 +1,755 @@
+/* =========================================================
+   UNDERGROUND BARBEARIA — STYLE.CSS
+   Versão responsiva / Mobile First
+   ========================================================= */
+
+:root {
+    --bg: #050505;
+    --surface: #101010;
+    --surface-2: #171717;
+    --text: #f5f5f5;
+    --muted: #bdbdbd;
+    --gold: #D4AF37;
+    --gold-light: #f5cb4c;
+    --border: rgba(255,255,255,.08);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    min-height: 70px;
+    padding: 12px 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: rgba(5,5,5,.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.logo {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #fff;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar li a {
+    display: inline-block;
+    padding: 8px 2px;
+    color: #eee;
+    font-size: 14px;
+    transition: .25s ease;
+}
+
+.navbar li a:hover {
+    color: var(--gold);
+}
+
+.btn-nav,
+.btn-primary,
+.btn-secondary,
+.btn-footer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.btn-nav {
+    flex: 0 0 auto;
+    padding: 12px 20px;
+    background: var(--gold);
+    color: #000;
+}
+
+.btn-nav:hover,
+.btn-primary:hover,
+.btn-footer:hover {
+    transform: translateY(-2px);
+    background: var(--gold-light);
+    box-shadow: 0 12px 28px rgba(212,175,55,.22);
+}
+
+.btn-primary {
+    padding: 14px 28px;
+    background: var(--gold);
+    color: #000;
+}
+
+.btn-secondary {
+    padding: 14px 28px;
+    border: 1px solid rgba(212,175,55,.65);
+    color: #fff;
+    background: rgba(0,0,0,.25);
+}
+
+.btn-secondary:hover {
+    background: rgba(212,175,55,.12);
+    border-color: var(--gold);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+    min-height: min(780px, calc(100vh - 70px));
+    padding: 110px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.52)),
+        #080808;
+    background-position: center;
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(212,175,55,.06), transparent 55%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(850px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tag {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin: 0;
+    max-width: 850px;
+    font-size: clamp(38px, 6vw, 72px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+}
+
+.hero p {
+    width: min(700px, 100%);
+    margin: 25px auto 0;
+    color: #c8c8c8;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    width: 100%;
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* =========================================================
+   SOBRE
+   ========================================================= */
+
+.sobre {
+    padding: 100px 6%;
+    background: #080808;
+}
+
+.sobre .container {
+    max-width: 1300px;
+}
+
+.sobre .mini {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.sobre h2 {
+    margin: 18px 0 25px;
+    max-width: 700px;
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.15;
+}
+
+.sobre p {
+    max-width: 760px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.cards {
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card {
+    min-width: 0;
+    padding: 34px 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    transition: .35s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    box-shadow: 0 18px 40px rgba(212,175,55,.12);
+}
+
+.card h3 {
+    margin: 0 0 14px;
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.card p {
+    margin: 0;
+    color: #c9c9c9;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   SERVIÇOS
+   ========================================================= */
+
+.servicos {
+    padding: 100px 6%;
+    background: #050505;
+}
+
+.servicos h2 {
+    margin: 0 0 55px;
+    text-align: center;
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.15;
+}
+
+.services-grid {
+    width: min(1300px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.service-card {
+    min-width: 0;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: .35s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 45px rgba(212,175,55,.15);
+}
+
+.service-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.service-card h3 {
+    margin: 0;
+    padding: 26px 28px 8px;
+    color: var(--gold);
+    font-size: 27px;
+}
+
+.service-card p {
+    margin: 0;
+    padding: 0 28px 30px;
+    color: #c7c7c7;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   INSTAGRAM
+   ========================================================= */
+
+.instagram {
+    padding: 100px 6%;
+    background: #080808;
+}
+
+.instagram-card {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    padding: 65px;
+    text-align: center;
+    background: linear-gradient(135deg, #111, #1d1d1d);
+    border: 1px solid rgba(212,175,55,.2);
+    border-radius: 24px;
+}
+
+.instagram-card span {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.instagram-card h2 {
+    margin: 18px 0;
+    font-size: clamp(30px, 5vw, 46px);
+    overflow-wrap: anywhere;
+}
+
+.instagram-card p {
+    margin: 0 0 35px;
+    color: #bfbfbf;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    padding: 65px 6%;
+    text-align: center;
+    background: #000;
+    border-top: 1px solid var(--border);
+}
+
+footer h2 {
+    margin: 0 0 12px;
+    color: var(--gold);
+    font-size: 32px;
+}
+
+footer p {
+    margin: 0 0 28px;
+    color: #9c9c9c;
+}
+
+.btn-footer {
+    padding: 14px 30px;
+    background: var(--gold);
+    color: #000;
+}
+
+/* =========================================================
+   ANIMAÇÃO
+   ========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.card,
+.service-card,
+.instagram-card {
+    animation: fadeUp .7s ease both;
+}
+
+button,
+a,
+.card,
+.service-card,
+.instagram-card {
+    transition: .3s ease;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+    .navbar {
+        padding: 12px 3%;
+        gap: 16px;
+    }
+
+    .navbar ul {
+        gap: 17px;
+    }
+
+    .cards,
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-card:last-child {
+        grid-column: 1 / -1;
+        width: min(600px, 100%);
+        margin: 0 auto;
+    }
+}
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 760px) {
+    html {
+        scroll-padding-top: 20px;
+    }
+
+    .navbar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 16px 18px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 13px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .navbar ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px 18px;
+    }
+
+    .navbar li a {
+        padding: 5px 0;
+        font-size: 13px;
+    }
+
+    .btn-nav {
+        width: 100%;
+        max-width: 340px;
+        min-height: 46px;
+    }
+
+    .hero {
+        min-height: calc(100svh - 190px);
+        padding: 75px 20px 65px;
+    }
+
+    .tag {
+        margin-bottom: 14px;
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .hero h1 {
+        font-size: clamp(34px, 10vw, 44px);
+        line-height: 1.12;
+        letter-spacing: -0.8px;
+    }
+
+    .hero p {
+        margin-top: 20px;
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .hero-buttons {
+        max-width: 360px;
+        margin-top: 28px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        min-height: 50px;
+    }
+
+    .sobre,
+    .servicos,
+    .instagram {
+        padding: 75px 20px;
+    }
+
+    .sobre h2,
+    .servicos h2 {
+        font-size: 35px;
+    }
+
+    .sobre p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .cards,
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .cards {
+        margin-top: 38px;
+    }
+
+    .card {
+        padding: 28px 22px;
+    }
+
+    .card h3 {
+        font-size: 22px;
+    }
+
+    .card p {
+        font-size: 15px;
+    }
+
+    .service-card:last-child {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .service-card img {
+        height: 220px;
+    }
+
+    .service-card h3 {
+        padding: 22px 22px 7px;
+        font-size: 23px;
+    }
+
+    .service-card p {
+        padding: 0 22px 25px;
+        font-size: 15px;
+    }
+
+    .instagram-card {
+        padding: 45px 22px;
+        border-radius: 18px;
+    }
+
+    .instagram-card h2 {
+        font-size: 30px;
+        line-height: 1.25;
+    }
+
+    .instagram-card p {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    footer {
+        padding: 50px 20px;
+    }
+
+    footer h2 {
+        font-size: 28px;
+    }
+}
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 400px) {
+    .navbar {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .navbar ul {
+        gap: 4px 13px;
+    }
+
+    .navbar li a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .sobre,
+    .servicos,
+    .instagram {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .sobre h2,
+    .servicos h2 {
+        font-size: 31px;
+    }
+
+    .service-card img {
+        height: 200px;
+    }
+
+    .instagram-card h2 {
+        font-size: 26px;
+    }
+}
+
+/* =========================================================
+   ACESSIBILIDADE / TOQUE
+   ========================================================= */
+
+@media (hover: none) {
+    .card:hover,
+    .service-card:hover,
+    .btn-nav:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-footer:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* Evita qualquer elemento causando rolagem horizontal */
+section,
+header,
+footer,
+main,
+div {
+    max-width: 100%;
+}
+
+table {
+    max-width: 100%;
+}
