@@ -2,7 +2,12 @@ from django.urls import path
 
 from . import views
 
+
 urlpatterns = [
+
+    # ==========================================
+    # AGENDAMENTO DO CLIENTE
+    # ==========================================
 
     path(
         "",
@@ -27,6 +32,10 @@ urlpatterns = [
         views.sucesso,
         name="sucesso",
     ),
+
+    # ==========================================
+    # PAINEL DE AGENDAMENTOS
+    # ==========================================
 
     path(
         "painel/",
@@ -58,4 +67,25 @@ urlpatterns = [
         name="excluir_agendamento",
     ),
 
+    # ==========================================
+    # CONFIGURAÇÃO DE HORÁRIOS
+    # ==========================================
+
+    path(
+        "disponibilidade/<int:dia_semana>/",
+        views.salvar_disponibilidade,
+        name="salvar_disponibilidade",
+    ),
+
+    path(
+        "bloqueio/criar/",
+        views.criar_bloqueio,
+        name="criar_bloqueio",
+    ),
+
+    path(
+        "bloqueio/remover/<int:id>/",
+        views.remover_bloqueio,
+        name="remover_bloqueio",
+    ),
 ]

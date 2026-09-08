@@ -8,6 +8,10 @@ Dashboard
 
 {% block content %}
 
+<!-- ========================================== -->
+<!-- CARDS -->
+<!-- ========================================== -->
+
 <div class="cards">
 
     <div class="card">
@@ -32,11 +36,488 @@ Dashboard
 
 </div>
 
-<div class="card">
+
+<!-- ========================================== -->
+<!-- HORÁRIOS DE ATENDIMENTO -->
+<!-- ========================================== -->
+
+<div
+    class="card"
+    style="margin-top:25px;"
+>
+
+    <h2 style="margin-bottom:10px;">
+        Horários de Atendimento
+    </h2>
+
+    <p
+        style="
+            margin-bottom:25px;
+            color:#777;
+        "
+    >
+        Configure os dias e horários em que
+        a barbearia atende.
+    </p>
+
+
+    {% for disponibilidade in disponibilidades %}
+
+    <form
+        method="POST"
+        action="{% url 'salvar_disponibilidade' disponibilidade.dia_semana %}"
+        style="
+            display:flex;
+            align-items:center;
+            gap:15px;
+            padding:15px 0;
+            border-bottom:1px solid #eee;
+            flex-wrap:wrap;
+        "
+    >
+
+        {% csrf_token %}
+
+
+        <div
+            style="
+                width:150px;
+                font-weight:bold;
+            "
+        >
+
+            {{ disponibilidade.get_dia_semana_display }}
+
+        </div>
+
+
+        <label
+            style="
+                display:flex;
+                align-items:center;
+                gap:8px;
+            "
+        >
+
+            <input
+                type="checkbox"
+                name="ativo"
+                {% if disponibilidade.ativo %}
+                    checked
+                {% endif %}
+            >
+
+            Atende
+
+        </label>
+
+
+        <div>
+
+            <label
+                style="
+                    display:block;
+                    font-size:13px;
+                    color:#777;
+                    margin-bottom:4px;
+                "
+            >
+                Início
+            </label>
+
+            <input
+                type="time"
+                name="horario_inicio"
+                value="{{ disponibilidade.horario_inicio|time:'H:i' }}"
+                style="
+                    padding:8px;
+                    border:1px solid #ddd;
+                    border-radius:6px;
+                "
+            >
+
+        </div>
+
+
+        <div>
+
+            <label
+                style="
+                    display:block;
+                    font-size:13px;
+                    color:#777;
+                    margin-bottom:4px;
+                "
+            >
+                Fim
+            </label>
+
+            <input
+                type="time"
+                name="horario_fim"
+                value="{{ disponibilidade.horario_fim|time:'H:i' }}"
+                style="
+                    padding:8px;
+                    border:1px solid #ddd;
+                    border-radius:6px;
+                "
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            style="
+                padding:9px 18px;
+                border:0;
+                border-radius:6px;
+                cursor:pointer;
+                font-weight:bold;
+            "
+        >
+            Salvar
+        </button>
+
+    </form>
+
+    {% empty %}
+
+    <p style="color:#777;">
+        Nenhuma disponibilidade configurada.
+    </p>
+
+    {% endfor %}
+
+</div>
+
+
+<!-- ========================================== -->
+<!-- BLOQUEIOS RECORRENTES -->
+<!-- ========================================== -->
+
+<div
+    class="card"
+    style="margin-top:25px;"
+>
+
+    <h2 style="margin-bottom:10px;">
+        Bloqueios Recorrentes
+    </h2>
+
+    <p
+        style="
+            margin-bottom:25px;
+            color:#777;
+        "
+    >
+        Bloqueie horários que não estarão disponíveis
+        toda semana, como clientes mensalistas,
+        almoço ou compromissos fixos.
+    </p>
+
+
+    <!-- ====================================== -->
+    <!-- NOVO BLOQUEIO -->
+    <!-- ====================================== -->
+
+    <form
+        method="POST"
+        action="{% url 'criar_bloqueio' %}"
+        style="
+            display:flex;
+            align-items:end;
+            gap:15px;
+            flex-wrap:wrap;
+            padding:20px;
+            background:#f7f7f7;
+            border-radius:10px;
+            margin-bottom:25px;
+        "
+    >
+
+        {% csrf_token %}
+
+
+        <!-- DIA -->
+
+        <div>
+
+            <label
+                style="
+                    display:block;
+                    font-size:13px;
+                    margin-bottom:6px;
+                "
+            >
+                Dia
+            </label>
+
+            <select
+                name="dia_semana"
+                required
+                style="
+                    padding:10px;
+                    border:1px solid #ddd;
+                    border-radius:6px;
+                "
+            >
+
+                <option value="0">
+                    Segunda-feira
+                </option>
+
+                <option value="1">
+                    Terça-feira
+                </option>
+
+                <option value="2">
+                    Quarta-feira
+                </option>
+
+                <option value="3">
+                    Quinta-feira
+                </option>
+
+                <option value="4">
+                    Sexta-feira
+                </option>
+
+                <option value="5">
+                    Sábado
+                </option>
+
+                <option value="6">
+                    Domingo
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- INÍCIO -->
+
+        <div>
+
+            <label
+                style="
+                    display:block;
+                    font-size:13px;
+                    margin-bottom:6px;
+                "
+            >
+                Início
+            </label>
+
+            <input
+                type="time"
+                name="horario_inicio"
+                required
+                style="
+                    padding:10px;
+                    border:1px solid #ddd;
+                    border-radius:6px;
+                "
+            >
+
+        </div>
+
+
+        <!-- FIM -->
+
+        <div>
+
+            <label
+                style="
+                    display:block;
+                    font-size:13px;
+                    margin-bottom:6px;
+                "
+            >
+                Fim
+            </label>
+
+            <input
+                type="time"
+                name="horario_fim"
+                required
+                style="
+                    padding:10px;
+                    border:1px solid #ddd;
+                    border-radius:6px;
+                "
+            >
+
+        </div>
+
+
+        <!-- MOTIVO -->
+
+        <div
+            style="
+                flex:1;
+                min-width:180px;
+            "
+        >
+
+            <label
+                style="
+                    display:block;
+                    font-size:13px;
+                    margin-bottom:6px;
+                "
+            >
+                Motivo
+            </label>
+
+            <input
+                type="text"
+                name="descricao"
+                placeholder="Ex.: Cliente mensalista"
+                style="
+                    width:100%;
+                    box-sizing:border-box;
+                    padding:10px;
+                    border:1px solid #ddd;
+                    border-radius:6px;
+                "
+            >
+
+        </div>
+
+
+        <!-- BOTÃO -->
+
+        <button
+            type="submit"
+            style="
+                padding:10px 20px;
+                border:0;
+                border-radius:6px;
+                cursor:pointer;
+                font-weight:bold;
+            "
+        >
+            + Bloquear horário
+        </button>
+
+    </form>
+
+
+    <!-- ====================================== -->
+    <!-- BLOQUEIOS ATIVOS -->
+    <!-- ====================================== -->
+
+    <h3 style="margin-bottom:15px;">
+        Bloqueios ativos
+    </h3>
+
+
+    {% for bloqueio in bloqueios %}
+
+    <div
+        style="
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:15px;
+            padding:15px;
+            margin-bottom:10px;
+            border:1px solid #eee;
+            border-radius:8px;
+            flex-wrap:wrap;
+        "
+    >
+
+        <div>
+
+            <strong>
+                {{ bloqueio.get_dia_semana_display }}
+            </strong>
+
+            <span style="margin-left:10px;">
+
+                {{ bloqueio.horario_inicio|time:"H:i" }}
+
+                -
+
+                {{ bloqueio.horario_fim|time:"H:i" }}
+
+            </span>
+
+
+            {% if bloqueio.descricao %}
+
+            <div
+                style="
+                    margin-top:5px;
+                    font-size:13px;
+                    color:#777;
+                "
+            >
+
+                {{ bloqueio.descricao }}
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <form
+            method="POST"
+            action="{% url 'remover_bloqueio' bloqueio.id %}"
+        >
+
+            {% csrf_token %}
+
+            <button
+                type="submit"
+                style="
+                    padding:8px 15px;
+                    border:0;
+                    border-radius:6px;
+                    cursor:pointer;
+                "
+                onclick="
+                    return confirm(
+                        'Deseja remover este bloqueio?'
+                    )
+                "
+            >
+                Remover
+            </button>
+
+        </form>
+
+    </div>
+
+    {% empty %}
+
+    <p style="color:#777;">
+        Nenhum bloqueio recorrente cadastrado.
+    </p>
+
+    {% endfor %}
+
+</div>
+
+
+<!-- ========================================== -->
+<!-- ÚLTIMOS AGENDAMENTOS -->
+<!-- ========================================== -->
+
+<div
+    class="card"
+    style="margin-top:25px;"
+>
 
     <h2 style="margin-bottom:20px;">
         Últimos Agendamentos
     </h2>
+
 
     <table>
 
@@ -45,13 +526,17 @@ Dashboard
             <tr>
 
                 <th>Cliente</th>
+
                 <th>Serviço</th>
+
                 <th>Data</th>
+
                 <th>Status</th>
 
             </tr>
 
         </thead>
+
 
         <tbody>
 
@@ -59,10 +544,21 @@ Dashboard
 
             <tr>
 
-                <td>{{ a.nome }}</td>
-                <td>{{ a.servico.nome }}</td>
-                <td>{{ a.data|date:"d/m/Y" }}</td>
-                <td>{{ a.status }}</td>
+                <td>
+                    {{ a.nome }}
+                </td>
+
+                <td>
+                    {{ a.servico.nome }}
+                </td>
+
+                <td>
+                    {{ a.data|date:"d/m/Y" }}
+                </td>
+
+                <td>
+                    {{ a.status }}
+                </td>
 
             </tr>
 
@@ -70,7 +566,13 @@ Dashboard
 
             <tr>
 
-                <td colspan="4" style="text-align:center;padding:30px;">
+                <td
+                    colspan="4"
+                    style="
+                        text-align:center;
+                        padding:30px;
+                    "
+                >
                     Nenhum agendamento encontrado.
                 </td>
 

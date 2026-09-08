@@ -2,6 +2,7 @@ from django.urls import path
 
 from . import views
 
+
 urlpatterns = [
 
     path(
@@ -33,5 +34,4 @@ urlpatterns = [
         views.recuperar_admin,
         name="recuperar_admin",
     ),
-
 ]

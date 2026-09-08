@@ -431,3 +431,116 @@ def excluir_agendamento(
     return redirect(
         "painel_agendamentos"
     )
+
+# ==========================================
+# CONFIGURAR DISPONIBILIDADE SEMANAL
+# ==========================================
+@login_required(login_url="/login/")
+def salvar_disponibilidade(request, dia_semana):
+
+    if request.method != "POST":
+        return redirect("dashboard")
+
+    if dia_semana not in range(7):
+        return redirect("dashboard")
+
+    ativo = request.POST.get("ativo") == "on"
+
+    horario_inicio = request.POST.get("horario_inicio") or "09:00"
+    horario_fim = request.POST.get("horario_fim") or "18:00"
+
+    try:
+        inicio = datetime.strptime(
+            horario_inicio,
+            "%H:%M"
+        ).time()
+
+        fim = datetime.strptime(
+            horario_fim,
+            "%H:%M"
+        ).time()
+    except (ValueError, TypeError):
+        return redirect("dashboard")
+
+    # Evita horário inválido
+    if inicio >= fim:
+        return redirect("dashboard")
+
+    DisponibilidadeSemanal.objects.update_or_create(
+        dia_semana=dia_semana,
+        defaults={
+            "ativo": ativo,
+            "horario_inicio": inicio,
+            "horario_fim": fim,
+        }
+    )
+
+    return redirect("dashboard")
+
+
+# ==========================================
+# CRIAR BLOQUEIO SEMANAL
+# ==========================================
+@login_required(login_url="/login/")
+def criar_bloqueio(request):
+
+    if request.method != "POST":
+        return redirect("dashboard")
+
+    try:
+        dia_semana = int(
+            request.POST.get("dia_semana")
+        )
+
+        horario_inicio = datetime.strptime(
+            request.POST.get("horario_inicio"),
+            "%H:%M"
+        ).time()
+
+        horario_fim = datetime.strptime(
+            request.POST.get("horario_fim"),
+            "%H:%M"
+        ).time()
+
+    except (ValueError, TypeError):
+        return redirect("dashboard")
+
+    if dia_semana not in range(7):
+        return redirect("dashboard")
+
+    if horario_inicio >= horario_fim:
+        return redirect("dashboard")
+
+    descricao = request.POST.get(
+        "descricao",
+        ""
+    ).strip()
+
+    BloqueioSemanal.objects.create(
+        dia_semana=dia_semana,
+        horario_inicio=horario_inicio,
+        horario_fim=horario_fim,
+        descricao=descricao,
+        ativo=True,
+    )
+
+    return redirect("dashboard")
+
+
+# ==========================================
+# REMOVER BLOQUEIO SEMANAL
+# ==========================================
+@login_required(login_url="/login/")
+def remover_bloqueio(request, id):
+
+    if request.method != "POST":
+        return redirect("dashboard")
+
+    bloqueio = get_object_or_404(
+        BloqueioSemanal,
+        id=id
+    )
+
+    bloqueio.delete()
+
+    return redirect("dashboard")

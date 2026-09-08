@@ -1,10 +1,24 @@
 import os
 
-from django.contrib.auth import authenticate, login, logout, get_user_model
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.contrib.auth import (
+    authenticate,
+    login,
+    logout,
+    get_user_model,
+)
 
-from agenda.models import Agendamento
+from django.contrib.auth.decorators import login_required
+
+from django.shortcuts import (
+    render,
+    redirect,
+)
+
+from agenda.models import (
+    Agendamento,
+    DisponibilidadeSemanal,
+    BloqueioSemanal,
+)
 
 
 # ==========================================
@@ -15,7 +29,7 @@ def home(request):
 
     return render(
         request,
-        "core/home.html",
+        "core/home.html"
     )
 
 
@@ -26,14 +40,22 @@ def home(request):
 def login_admin(request):
 
     if request.user.is_authenticated:
-        return redirect("dashboard")
+
+        return redirect(
+            "dashboard"
+        )
 
     erro = None
 
     if request.method == "POST":
 
-        usuario = request.POST.get("usuario")
-        senha = request.POST.get("senha")
+        usuario = request.POST.get(
+            "usuario"
+        )
+
+        senha = request.POST.get(
+            "senha"
+        )
 
         user = authenticate(
             request,
@@ -43,17 +65,24 @@ def login_admin(request):
 
         if user is not None:
 
-            login(request, user)
+            login(
+                request,
+                user
+            )
 
-            return redirect("dashboard")
+            return redirect(
+                "dashboard"
+            )
 
-        erro = "Usuário ou senha inválidos."
+        erro = (
+            "Usuário ou senha inválidos."
+        )
 
     return render(
         request,
         "dashboard/login.html",
         {
-            "erro": erro,
+            "erro": erro
         },
     )
 
@@ -66,6 +95,10 @@ def login_admin(request):
 def dashboard(request):
 
     agendamentos = Agendamento.objects.all()
+
+    # ==========================================
+    # ESTATÍSTICAS
+    # ==========================================
 
     total = agendamentos.count()
 
@@ -95,9 +128,28 @@ def dashboard(request):
         )
     )
 
-    ultimos = agendamentos.order_by(
-        "-criado_em"
-    )[:5]
+    ultimos = (
+        agendamentos
+        .order_by("-criado_em")[:5]
+    )
+
+    # ==========================================
+    # DISPONIBILIDADE SEMANAL
+    # ==========================================
+
+    disponibilidades = (
+        DisponibilidadeSemanal.objects.all()
+    )
+
+    # ==========================================
+    # BLOQUEIOS SEMANAIS
+    # ==========================================
+
+    bloqueios = (
+        BloqueioSemanal.objects.filter(
+            ativo=True
+        )
+    )
 
     return render(
         request,
@@ -110,12 +162,18 @@ def dashboard(request):
             "cancelados": cancelados,
             "faturamento": faturamento,
             "ultimos": ultimos,
+
+            "disponibilidades":
+                disponibilidades,
+
+            "bloqueios":
+                bloqueios,
         },
     )
 
 
 # ==========================================
-# LOGOUT
+# SAIR
 # ==========================================
 
 @login_required(login_url="/login/")
@@ -123,16 +181,20 @@ def sair(request):
 
     logout(request)
 
-    return redirect("login")
+    return redirect(
+        "login"
+    )
 
 
 # ==========================================
-# RECUPERAÇÃO TEMPORÁRIA DO ADMIN
+# RECUPERAR ADMIN
 # ==========================================
 
 def recuperar_admin(request):
 
-    token_url = request.GET.get("token")
+    token_url = request.GET.get(
+        "token"
+    )
 
     token_correto = os.environ.get(
         "ADMIN_RESET_TOKEN"
@@ -142,41 +204,39 @@ def recuperar_admin(request):
         "ADMIN_NEW_PASSWORD"
     )
 
-    # Verifica se as variáveis existem no Render
     if not token_correto or not nova_senha:
 
         return render(
             request,
             "dashboard/reset_result.html",
             {
-                "mensagem": "Recuperação não configurada."
+                "mensagem":
+                    "Recuperação não configurada."
             },
         )
 
-    # Verifica o token
     if token_url != token_correto:
 
         return render(
             request,
             "dashboard/reset_result.html",
             {
-                "mensagem": "Token inválido."
+                "mensagem":
+                    "Token inválido."
             },
         )
 
-    # ==========================================
-    # CRIA OU ATUALIZA O ADMIN
-    # ==========================================
-
     User = get_user_model()
 
-    usuario, criado = User.objects.get_or_create(
-        username="admin",
-        defaults={
-            "is_staff": True,
-            "is_superuser": True,
-            "is_active": True,
-        },
+    usuario, criado = (
+        User.objects.get_or_create(
+            username="admin",
+            defaults={
+                "is_staff": True,
+                "is_superuser": True,
+                "is_active": True,
+            },
+        )
     )
 
     usuario.set_password(
@@ -189,17 +249,11 @@ def recuperar_admin(request):
 
     usuario.save()
 
-    # ==========================================
-    # RESULTADO
-    # ==========================================
-
     return render(
         request,
         "dashboard/reset_result.html",
         {
-            "mensagem": (
-                "Administrador criado/atualizado "
-                "com sucesso."
-            )
+            "mensagem":
+                "Administrador criado/atualizado com sucesso."
         },
     )
