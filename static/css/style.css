@@ -753,3 +753,509 @@ div {
 table {
     max-width: 100%;
 }
+
+/* =========================================================
+   HERO MOBILE — VERSÃO ÚNICA E DEFINITIVA
+   Layout:
+   BANNER/HEADER → FRASE → FOTO → AGENDAR
+   ========================================================= */
+
+/* A versão nova do Hero mobile fica escondida no desktop. */
+.hero-mobile-content {
+    display: none;
+}
+
+@media screen and (max-width: 760px) {
+
+    /* ---------- BASE MOBILE ---------- */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden !important;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    section {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* ---------- HEADER / BANNER ---------- */
+
+    .navbar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 14px 16px;
+        gap: 12px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo {
+        max-width: 100%;
+        font-size: 18px;
+        gap: 8px;
+    }
+
+    .navbar ul {
+        width: 100%;
+        max-width: 100%;
+        gap: 5px 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar li a {
+        padding: 5px 0;
+        font-size: 12px;
+    }
+
+    .btn-nav {
+        width: 100%;
+        max-width: 320px;
+        min-height: 46px;
+        padding: 11px 18px;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        min-height: auto;
+        height: auto;
+
+        margin: 0;
+        padding: 22px 16px 34px;
+
+        display: block;
+        overflow: hidden;
+
+        box-sizing: border-box;
+
+        background:
+            radial-gradient(
+                circle at 50% 48%,
+                rgba(212, 175, 55, .055),
+                transparent 42%
+            ),
+            #090909;
+    }
+
+    /* Desliga completamente o Hero antigo no celular. */
+    .hero > .hero-content {
+        display: none !important;
+    }
+
+    /* ---------- NOVO CONTEÚDO ---------- */
+
+    .hero-mobile-content {
+        position: relative;
+        z-index: 10;
+
+        width: 100%;
+        max-width: 390px;
+        min-width: 0;
+
+        min-height: 0;
+        margin: 0 auto;
+        padding: 0;
+
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        box-sizing: border-box;
+    }
+
+    /* ---------- FRASE ---------- */
+
+    .hero-mobile-text {
+        position: relative;
+        z-index: 20;
+
+        display: block;
+
+        width: 100%;
+        max-width: 320px;
+        min-width: 0;
+
+        margin: 4px auto 18px;
+        padding: 0 4px;
+
+        color: #d0d0d0;
+
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.55;
+
+        text-align: center;
+        overflow-wrap: break-word;
+        word-break: normal;
+
+        box-sizing: border-box;
+    }
+
+    /* ---------- FOTO ---------- */
+
+    .hero-mobile-photo {
+        position: relative;
+        z-index: 5;
+
+        width: 100%;
+        max-width: 340px;
+        min-width: 0;
+
+        height: 350px;
+
+        margin: 0 auto 18px;
+        padding: 0;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    .hero-mobile-photo img {
+        position: relative;
+        z-index: 3;
+
+        display: block;
+
+        width: auto;
+        max-width: 100%;
+
+        height: 350px;
+        max-height: 350px;
+
+        margin: 0 auto;
+        padding: 0;
+
+        object-fit: contain;
+        object-position: center bottom;
+
+        opacity: 1;
+        visibility: visible;
+
+        box-sizing: border-box;
+    }
+
+    /* Círculo dourado atrás do Davi */
+    .hero-photo-circle {
+        position: absolute;
+        z-index: 1;
+
+        width: 285px;
+        height: 285px;
+
+        top: 48%;
+        left: 50%;
+
+        margin: 0;
+        transform: translate(-50%, -50%);
+
+        border: 1px solid rgba(212, 175, 55, .32);
+        border-radius: 50%;
+
+        pointer-events: none;
+        box-sizing: border-box;
+    }
+
+    /* ---------- BOTÃO ---------- */
+
+    .hero-mobile-button {
+        position: relative;
+        z-index: 30;
+
+        display: flex;
+
+        width: 100%;
+        max-width: 340px;
+        min-height: 56px;
+
+        margin: 0 auto;
+        padding: 16px 20px;
+
+        align-items: center;
+        justify-content: center;
+
+        background: #D4AF37;
+        color: #050505;
+
+        border: 0;
+        border-radius: 12px;
+
+        font-family: "Poppins", sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1;
+
+        text-align: center;
+        text-decoration: none;
+
+        box-shadow: 0 10px 30px rgba(212, 175, 55, .18);
+
+        transition:
+            transform .2s ease,
+            background .2s ease,
+            box-shadow .2s ease;
+
+        box-sizing: border-box;
+    }
+
+    .hero-mobile-button:hover {
+        background: #f5cb4c;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 34px rgba(212, 175, 55, .24);
+    }
+
+    .hero-mobile-button:active {
+        transform: scale(.98);
+    }
+
+    /* ---------- SEÇÕES DO RESTANTE DO SITE ---------- */
+
+    .sobre,
+    .servicos,
+    .instagram {
+        padding: 70px 18px;
+    }
+
+    .sobre h2,
+    .servicos h2 {
+        font-size: 34px;
+        line-height: 1.15;
+    }
+
+    .sobre p {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .cards,
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .cards {
+        margin-top: 35px;
+    }
+
+    .card {
+        padding: 26px 20px;
+    }
+
+    .service-card img {
+        height: 220px;
+    }
+
+    .service-card h3 {
+        padding: 20px 20px 7px;
+        font-size: 23px;
+    }
+
+    .service-card p {
+        padding: 0 20px 24px;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .instagram-card {
+        width: 100%;
+        padding: 40px 20px;
+        border-radius: 18px;
+    }
+
+    .instagram-card h2 {
+        font-size: 29px;
+        line-height: 1.25;
+    }
+
+    .instagram-card p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    footer {
+        padding: 48px 18px;
+    }
+
+    footer h2 {
+        font-size: 27px;
+    }
+}
+
+/* =========================================================
+   CELULARES PEQUENOS — 400PX OU MENOR
+   ========================================================= */
+
+@media screen and (max-width: 400px) {
+
+    .navbar {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .navbar ul {
+        gap: 4px 11px;
+    }
+
+    .navbar li a {
+        font-size: 11px;
+    }
+
+    .btn-nav {
+        max-width: 300px;
+    }
+
+    .hero {
+        padding: 18px 14px 30px;
+    }
+
+    .hero-mobile-content {
+        max-width: 360px;
+    }
+
+    .hero-mobile-text {
+        max-width: 305px;
+        margin-top: 2px;
+        margin-bottom: 13px;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .hero-mobile-photo {
+        max-width: 315px;
+        height: 315px;
+        margin-bottom: 15px;
+    }
+
+    .hero-mobile-photo img {
+        height: 315px;
+        max-height: 315px;
+    }
+
+    .hero-photo-circle {
+        width: 260px;
+        height: 260px;
+    }
+
+    .hero-mobile-button {
+        max-width: 320px;
+        min-height: 54px;
+        font-size: 14px;
+    }
+
+    .sobre,
+    .servicos,
+    .instagram {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .sobre h2,
+    .servicos h2 {
+        font-size: 30px;
+    }
+
+    .service-card img {
+        height: 200px;
+    }
+
+    .instagram-card {
+        padding: 35px 17px;
+    }
+
+    .instagram-card h2 {
+        font-size: 26px;
+    }
+}
+
+/* =========================================================
+   CELULARES MUITO PEQUENOS — 360PX OU MENOR
+   ========================================================= */
+
+@media screen and (max-width: 360px) {
+
+    .hero {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .hero-mobile-text {
+        max-width: 290px;
+        font-size: 12.5px;
+    }
+
+    .hero-mobile-photo {
+        max-width: 295px;
+        height: 295px;
+    }
+
+    .hero-mobile-photo img {
+        height: 295px;
+        max-height: 295px;
+    }
+
+    .hero-photo-circle {
+        width: 240px;
+        height: 240px;
+    }
+
+    .hero-mobile-button {
+        max-width: 300px;
+    }
+}
+
+/* =========================================================
+   SEGURANÇA CONTRA ROLAGEM HORIZONTAL
+   ========================================================= */
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe,
+table {
+    max-width: 100%;
+}
+
+table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}

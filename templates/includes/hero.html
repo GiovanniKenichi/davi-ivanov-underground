@@ -4,65 +4,32 @@
 
     <div class="hero-bg"></div>
 
-    <div class="container hero-content">
+    <div class="hero-mobile-content">
 
-        <div class="hero-text">
-
-            <span class="subtitle">
-                BARBEIRO PROFISSIONAL
-            </span>
-
-            <h1>
-                O corte perfeito para elevar seu
-                <span>estilo.</span>
-            </h1>
-
-            <p>
-                Cortes modernos, barba impecável e atendimento de alto padrão para quem valoriza a própria imagem.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="{% url 'agendamento' %}" class="btn">
-                    Agendar Horário
-                </a>
-
-                <a href="#servicos" class="btn-outline">
-                    Ver Serviços
-                </a>
-
-            </div>
-
-            <div class="hero-info">
-
-                <div class="info-card glass">
-                    <h3>100+</h3>
-                    <span>Clientes</span>
-                </div>
-
-                <div class="info-card glass">
-                    <h3>4.9★</h3>
-                    <span>Avaliações</span>
-                </div>
-
-                <div class="info-card glass">
-                    <h3>3+</h3>
-                    <span>Anos</span>
-                </div>
-
-            </div>
-
+        <!-- FRASE -->
+        <div class="hero-mobile-text">
+            Agende seu corte de forma rápida, prática e fácil.
         </div>
 
-        <div class="hero-image">
+        <!-- FOTO -->
+        <div class="hero-mobile-photo">
 
-            <div class="circle-light"></div>
+            <div class="hero-photo-circle"></div>
 
             <img
                 src="{% static 'images/davi.png' %}"
-                alt="Davi Ivanov">
+                alt="Davi Ivanov - Barbeiro"
+            >
 
         </div>
+
+        <!-- BOTÃO -->
+        <a
+            href="{% url 'agendamento' %}"
+            class="hero-mobile-button"
+        >
+            Agendar Horário
+        </a>
 
     </div>
 
