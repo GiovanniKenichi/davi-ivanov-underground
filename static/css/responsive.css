@@ -753,2663 +753,797 @@ div {
 table {
     max-width: 100%;
 }
+
 /* =========================================================
-   CORREÇÃO DEFINITIVA — HERO RESPONSIVO
-   DAVI IVANOV
+   RESPONSIVE FINAL — DAVI IVANOV / UNDERGROUND
+   Android + iPhone + tablets
    ========================================================= */
 
-.hero {
+/* ---------- segurança global ---------- */
+
+html,
+body {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    overflow: hidden;
-    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-.hero-content {
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
-    align-items: center;
-    gap: 60px;
-
-    text-align: left;
+body {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
 }
 
-.hero-text {
-    width: 100%;
-    min-width: 0;
-    max-width: 720px;
-    box-sizing: border-box;
-}
-
-.hero-text .subtitle {
-    display: inline-block;
+*,
+*::before,
+*::after {
     max-width: 100%;
-    margin-bottom: 22px;
-
-    color: var(--gold, #D4AF37);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    line-height: 1.5;
 }
 
-.hero-text h1 {
-    width: 100%;
-    max-width: 720px;
-    margin: 0;
-
-    font-size: clamp(42px, 5vw, 72px);
-    line-height: 1.05;
-    letter-spacing: -2px;
-
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+img,
+svg,
+video,
+canvas,
+iframe {
+    max-width: 100%;
 }
 
-.hero-text h1 span {
-    color: var(--gold, #D4AF37);
+button,
+a,
+input,
+select,
+textarea {
+    -webkit-tap-highlight-color: transparent;
 }
 
-.hero-text p {
-    width: 100%;
-    max-width: 650px;
-    margin: 25px 0 0;
-
-    color: #c7c7c7;
-    font-size: 18px;
-    line-height: 1.8;
-
-    overflow-wrap: break-word;
+button,
+a {
+    touch-action: manipulation;
 }
 
-.hero-buttons {
-    width: 100%;
-    max-width: 650px;
-    margin-top: 32px;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: 14px;
-
-    box-sizing: border-box;
+input,
+select,
+textarea,
+button {
+    max-width: 100%;
 }
-
-.hero-buttons .btn,
-.hero-buttons .btn-outline {
-    min-width: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    text-align: center;
-}
-
-.hero-info {
-    width: 100%;
-    max-width: 650px;
-    margin-top: 42px;
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-
-    box-sizing: border-box;
-}
-
-.info-card {
-    min-width: 0;
-    width: 100%;
-    box-sizing: border-box;
-
-    padding: 20px 15px;
-    text-align: center;
-
-    border-radius: 16px;
-}
-
-.info-card h3 {
-    margin: 0 0 6px;
-
-    color: var(--gold, #D4AF37);
-    font-size: 30px;
-    line-height: 1.1;
-}
-
-.info-card span {
-    display: block;
-
-    color: #cfcfcf;
-    font-size: 14px;
-    line-height: 1.4;
-
-    overflow-wrap: break-word;
-}
-
-.hero-image {
-    position: relative;
-
-    width: 100%;
-    max-width: 520px;
-    min-width: 0;
-
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
-}
-
-.hero-image img {
-    position: relative;
-    z-index: 2;
-
-    display: block;
-
-    width: 100%;
-    max-width: 520px;
-    height: auto;
-
-    object-fit: contain;
-
-    box-sizing: border-box;
-}
-
-.circle-light {
-    position: absolute;
-    z-index: 1;
-
-    width: 80%;
-    aspect-ratio: 1 / 1;
-
-    border-radius: 50%;
-
-    background: radial-gradient(
-        circle,
-        rgba(212, 175, 55, .20) 0%,
-        rgba(212, 175, 55, .08) 45%,
-        transparent 72%
-    );
-
-    pointer-events: none;
-}
-
 
 /* =========================================================
-   TABLET
+   DESKTOP / NOTEBOOK — pequenos ajustes de estabilidade
    ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
+    .navbar {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .navbar ul {
+        gap: 20px;
+    }
 
     .hero {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 
-    .hero-content {
-        grid-template-columns: minmax(0, 1fr) minmax(280px, .75fr);
-        gap: 35px;
+    .sobre,
+    .servicos,
+    .instagram {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+/* =========================================================
+   TABLET — 761px a 1000px
+   ========================================================= */
+
+@media (max-width: 1000px) and (min-width: 761px) {
+
+    .navbar {
+        gap: 16px;
     }
 
-    .hero-text h1 {
-        font-size: clamp(38px, 5.5vw, 58px);
+    .navbar ul {
+        gap: 15px;
     }
 
-    .hero-text p {
+    .navbar li a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 650px;
+        padding: 85px 5%;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 6vw, 60px);
+    }
+
+    .hero p {
+        max-width: 650px;
         font-size: 17px;
     }
 
-    .hero-image {
-        max-width: 420px;
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .cards,
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-card:last-child {
+        grid-column: 1 / -1;
+        width: min(600px, 100%);
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
-
 /* =========================================================
-   CELULAR
+   CELULAR — 760px
    ========================================================= */
 
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
 
-    html,
+    html {
+        scroll-padding-top: 12px;
+    }
+
     body {
         width: 100%;
-        max-width: 100%;
+        min-width: 0;
         overflow-x: hidden;
     }
 
-    .hero {
+    /* ---------- HEADER ---------- */
+
+    header {
+        position: relative;
         width: 100%;
-        max-width: 100%;
-        min-height: auto;
-
-        padding: 55px 20px 60px;
-
-        overflow: hidden;
-
-        text-align: center;
-        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        overflow: visible;
     }
 
-    .hero-content {
-        width: 100%;
-        max-width: 100%;
+    .navbar {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+
+        width: calc(100% - 24px);
+        max-width: 420px;
+        min-height: 0;
+        height: auto;
+
+        margin: 10px auto 0;
+        padding: 12px 14px;
 
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        gap: 8px;
 
-        gap: 0;
-
+        border-radius: 18px;
         box-sizing: border-box;
+
+        overflow: visible;
     }
 
-    .hero-text {
+    .logo {
+        width: 100%;
+        min-width: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+
+        font-size: 18px;
+        line-height: 1.15;
+        letter-spacing: .7px;
+        white-space: nowrap;
+    }
+
+    .logo img {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+        object-fit: contain;
+    }
+
+    .navbar ul {
+        width: 100%;
+        min-width: 0;
+
+        margin: 4px 0 0;
+        padding: 0;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        gap: 3px 14px;
+        list-style: none;
+    }
+
+    .navbar li {
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar li a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 32px;
+        padding: 5px 0;
+
+        font-size: 12px;
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    .btn-nav {
+        width: 100%;
+        max-width: 320px;
+        min-height: 48px;
+        margin-top: 2px;
+        padding: 11px 16px;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
         width: 100%;
         max-width: 100%;
         min-width: 0;
 
+        min-height: 0;
+        height: auto;
+
+        margin: 0;
+        padding: 30px 14px 45px;
+
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: center;
+
+        text-align: center;
+        overflow: hidden;
 
         box-sizing: border-box;
     }
 
-    .hero-text .subtitle {
-        max-width: 100%;
-        margin-bottom: 18px;
+    .hero-content {
+        position: relative;
+        z-index: 2;
 
-        font-size: 11px;
-        letter-spacing: 3px;
-        line-height: 1.6;
+        width: 100%;
+        max-width: 420px;
+        min-width: 0;
+
+        margin: 0 auto;
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 0;
+        box-sizing: border-box;
+    }
+
+    .tag {
+        width: 100%;
+        margin: 0 0 10px;
+        padding: 0 4px;
+
+        font-size: 10px;
+        line-height: 1.4;
+        letter-spacing: 2px;
+        overflow-wrap: anywhere;
+    }
+
+    .hero h1 {
+        width: 100%;
+        max-width: 380px;
+
+        margin: 0 auto;
+        padding: 0;
+
+        font-size: clamp(32px, 9.5vw, 45px);
+        line-height: 1.08;
+        letter-spacing: -.8px;
 
         overflow-wrap: break-word;
     }
 
-    .hero-text h1 {
+    .hero p {
         width: 100%;
-        max-width: 100%;
+        max-width: 340px;
 
-        margin: 0;
+        margin: 17px auto 0;
+        padding: 0 4px;
 
-        font-size: clamp(34px, 10vw, 48px);
-        line-height: 1.08;
-        letter-spacing: -1px;
+        font-size: 14px;
+        line-height: 1.65;
 
-        overflow-wrap: anywhere;
-        word-break: normal;
-    }
-
-    .hero-text p {
-        width: 100%;
-        max-width: 390px;
-
-        margin: 22px auto 0;
-
-        font-size: 16px;
-        line-height: 1.7;
-
-        overflow-wrap: anywhere;
-        word-break: normal;
+        overflow-wrap: break-word;
     }
 
     .hero-buttons {
         width: 100%;
-        max-width: 390px;
+        max-width: 340px;
 
-        margin-top: 28px;
+        margin: 25px auto 0;
+        padding: 0;
 
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        justify-content: center;
 
-        gap: 12px;
-
+        gap: 10px;
         box-sizing: border-box;
     }
 
-    .hero-buttons .btn,
-    .hero-buttons .btn-outline {
+    .btn-primary,
+    .btn-secondary {
         width: 100%;
+        min-height: 54px;
+        padding: 14px 18px;
+
+        font-size: 14px;
+        line-height: 1.25;
+    }
+
+    /* ---------- SOBRE ---------- */
+
+    .sobre,
+    .servicos,
+    .instagram {
+        width: 100%;
+        max-width: 100%;
         min-width: 0;
+
+        padding: 68px 16px;
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+    .sobre .container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .sobre .mini {
+        display: block;
+        font-size: 11px;
+        line-height: 1.4;
+        letter-spacing: 2px;
+    }
+
+    .sobre h2,
+    .servicos h2 {
+        width: 100%;
         max-width: 100%;
 
-        padding: 16px 20px;
+        font-size: clamp(29px, 8.5vw, 38px);
+        line-height: 1.15;
 
-        box-sizing: border-box;
-
-        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
     }
 
-    .hero-info {
-        width: 100%;
-        max-width: 390px;
+    .sobre h2 {
+        margin-top: 14px;
+        margin-bottom: 19px;
+    }
 
-        margin-top: 30px;
+    .sobre p {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: 15px;
+        line-height: 1.8;
+
+        overflow-wrap: break-word;
+    }
+
+    .cards {
+        width: 100%;
+        max-width: 100%;
+
+        margin-top: 34px;
 
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-
-        gap: 8px;
-
-        box-sizing: border-box;
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
-    .info-card {
+    .card {
         width: 100%;
         min-width: 0;
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
 
-        padding: 16px 8px;
+    .card h3 {
+        font-size: 21px;
+        line-height: 1.3;
+    }
 
-        border-radius: 14px;
+    .card p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    /* ---------- SERVIÇOS ---------- */
+
+    .servicos h2 {
+        margin-bottom: 34px;
+    }
+
+    .services-grid {
+        width: 100%;
+        max-width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .service-card {
+        width: 100%;
+        min-width: 0;
+        border-radius: 17px;
+    }
+
+    .service-card:last-child {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .service-card img {
+        display: block;
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+    }
+
+    .service-card h3 {
+        padding: 20px 20px 7px;
+        font-size: 22px;
+        line-height: 1.25;
+        overflow-wrap: break-word;
+    }
+
+    .service-card p {
+        padding: 0 20px 23px;
+        font-size: 14px;
+        line-height: 1.75;
+        overflow-wrap: break-word;
+    }
+
+    /* ---------- INSTAGRAM ---------- */
+
+    .instagram-card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        padding: 38px 19px;
+        border-radius: 18px;
 
         box-sizing: border-box;
+        overflow: hidden;
     }
 
-    .info-card h3 {
-        font-size: 24px;
-        line-height: 1.1;
+    .instagram-card span {
+        font-size: 10px;
+        letter-spacing: 2px;
     }
 
-    .info-card span {
-        font-size: 12px;
-        line-height: 1.3;
+    .instagram-card h2 {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 14px 0;
+
+        font-size: clamp(25px, 7.5vw, 32px);
+        line-height: 1.2;
 
         overflow-wrap: anywhere;
     }
 
-    .hero-image {
-        width: 100%;
-        max-width: 360px;
-
-        margin-top: 50px;
-
-        box-sizing: border-box;
+    .instagram-card p {
+        font-size: 14px;
+        line-height: 1.75;
+        overflow-wrap: break-word;
     }
 
-    .hero-image img {
-        width: 100%;
-        max-width: 360px;
-        height: auto;
-    }
+    /* ---------- FOOTER ---------- */
 
-    .circle-light {
-        width: 80%;
-    }
-}
-/* =========================================================
-   FIX DEFINITIVO — MOBILE HERO
-   ========================================================= */
-
-@media (max-width: 760px) {
-
-    html,
-    body {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow-x: hidden !important;
-    }
-
-    .hero {
-        width: 100vw !important;
-        max-width: 100vw !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        padding: 50px 20px 60px !important;
-
-        box-sizing: border-box !important;
-        overflow: hidden !important;
-    }
-
-    .hero-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-text {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-text .subtitle {
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        margin: 0 0 20px !important;
-
-        text-align: center !important;
-
-        font-size: 11px !important;
-        letter-spacing: 3px !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-text h1 {
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        text-align: center !important;
-
-        font-size: 38px !important;
-        line-height: 1.08 !important;
-        letter-spacing: -1px !important;
-
-        overflow-wrap: break-word !important;
-        word-break: normal !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-text p {
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        margin: 22px 0 0 !important;
-        padding: 0 !important;
-
-        text-align: center !important;
-
-        font-size: 16px !important;
-        line-height: 1.65 !important;
-
-        overflow-wrap: break-word !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-buttons {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        margin: 28px 0 0 !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-
-        gap: 12px !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-buttons a,
-    .hero-buttons .btn,
-    .hero-buttons .btn-outline {
-        display: flex !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        min-height: 56px !important;
-
-        margin: 0 !important;
-        padding: 16px 20px !important;
-
-        align-items: center !important;
-        justify-content: center !important;
-
-        box-sizing: border-box !important;
-
-        text-align: center !important;
-        white-space: normal !important;
-    }
-
-    .hero-info {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        margin: 32px 0 0 !important;
-        padding: 0 !important;
-
-        display: grid !important;
-        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-
-        gap: 8px !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .info-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        margin: 0 !important;
-        padding: 15px 5px !important;
-
-        box-sizing: border-box !important;
-
-        text-align: center !important;
-    }
-
-    .info-card h3 {
-        margin: 0 0 5px !important;
-
-        font-size: 23px !important;
-        line-height: 1.1 !important;
-
-        white-space: nowrap !important;
-    }
-
-    .info-card span {
-        display: block !important;
-
-        width: 100% !important;
-
-        font-size: 11px !important;
-        line-height: 1.3 !important;
-
-        overflow-wrap: break-word !important;
-    }
-
-    .hero-image {
-        width: 100% !important;
-        max-width: 360px !important;
-        min-width: 0 !important;
-
-        margin: 50px auto 0 !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-image img {
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 360px !important;
-        height: auto !important;
-
-        margin: 0 auto !important;
-
-        box-sizing: border-box !important;
-    }
-}
-
-
-/* CELULARES MUITO PEQUENOS */
-
-@media (max-width: 400px) {
-
-    .hero {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-    }
-
-    .hero-text h1 {
-        font-size: 34px !important;
-    }
-
-    .hero-info {
-        gap: 5px !important;
-    }
-
-    .info-card {
-        padding-left: 3px !important;
-        padding-right: 3px !important;
-    }
-
-    .info-card h3 {
-        font-size: 21px !important;
-    }
-
-    .info-card span {
-        font-size: 10px !important;
-    }
-
-    .hero-image {
-        max-width: 330px !important;
-    }
-
-    .hero-image img {
-        max-width: 330px !important;
-    }
-}
-/* =========================================================
-   CORREÇÃO DEFINITIVA DO HERO NO CELULAR
-   DAVI IVANOV
-   ========================================================= */
-
-@media (max-width: 760px) {
-
-    /* Evita qualquer conteúdo passando para os lados */
-    html,
-    body {
+    footer {
         width: 100%;
         max-width: 100%;
-        overflow-x: hidden !important;
+
+        padding: 48px 18px;
+
+        box-sizing: border-box;
+        overflow: hidden;
     }
 
-    /* HERO */
-    .hero {
-        width: 100% !important;
-        min-height: auto !important;
-        height: auto !important;
-
-        padding: 40px 18px 60px !important;
-
-        display: block !important;
-
-        text-align: center !important;
-
-        overflow: hidden !important;
-
-        position: relative !important;
+    footer h2 {
+        font-size: 27px;
+        line-height: 1.2;
+        overflow-wrap: break-word;
     }
 
-    /* Container principal */
-    .hero-content {
-        width: 100% !important;
-        max-width: 420px !important;
-
-        margin: 0 auto !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-
-        position: relative !important;
-        z-index: 2 !important;
+    footer p {
+        font-size: 14px;
+        line-height: 1.7;
+        overflow-wrap: break-word;
     }
 
-    /*
-       Fazemos os elementos do hero-text
-       participarem da mesma ordem do conteúdo.
-    */
-    .hero-text {
-        display: contents !important;
+    .btn-footer {
+        width: 100%;
+        max-width: 320px;
+        min-height: 54px;
+        padding: 14px 18px;
     }
 
-    /* =====================================================
-       1 — FRASE PEQUENA
-       ===================================================== */
+    /* ---------- TOUCH / HOVER ---------- */
 
-    .hero .subtitle {
-        order: 1 !important;
-
-        display: block !important;
-
-        margin: 0 0 14px !important;
-
-        color: #d4af37 !important;
-
-        font-size: 10px !important;
-        font-weight: 700 !important;
-
-        letter-spacing: 2px !important;
-
-        text-align: center !important;
-
-        white-space: normal !important;
+    @media (hover: none) {
+        .card:hover,
+        .service-card:hover,
+        .btn-nav:hover,
+        .btn-primary:hover,
+        .btn-secondary:hover,
+        .btn-footer:hover {
+            transform: none;
+            box-shadow: none;
+        }
     }
-
-    /* =====================================================
-       2 — TÍTULO
-       ===================================================== */
-
-    .hero h1 {
-        order: 2 !important;
-
-        width: 100% !important;
-        max-width: 350px !important;
-
-        margin: 0 auto !important;
-
-        padding: 0 !important;
-
-        color: #ffffff !important;
-
-        font-size: 35px !important;
-
-        line-height: 1.08 !important;
-
-        letter-spacing: -0.8px !important;
-
-        text-align: center !important;
-
-        overflow-wrap: normal !important;
-        word-break: normal !important;
-    }
-
-    .hero h1 span {
-        color: #d4af37 !important;
-    }
-
-    /* =====================================================
-       3 — TEXTO
-       ===================================================== */
-
-    .hero p {
-        order: 3 !important;
-
-        width: 100% !important;
-        max-width: 340px !important;
-
-        margin: 18px auto 0 !important;
-
-        padding: 0 !important;
-
-        color: #c8c8c8 !important;
-
-        font-size: 14px !important;
-
-        line-height: 1.65 !important;
-
-        text-align: center !important;
-    }
-
-    /* =====================================================
-       4 — FOTO DO DAVI
-       ===================================================== */
-
-    .hero-image {
-        order: 4 !important;
-
-        position: relative !important;
-
-        width: 100% !important;
-        height: 310px !important;
-
-        margin: 20px auto 5px !important;
-
-        display: flex !important;
-
-        align-items: flex-end !important;
-        justify-content: center !important;
-
-        overflow: visible !important;
-
-        z-index: 1 !important;
-    }
-
-    .hero-image img {
-        display: block !important;
-
-        width: auto !important;
-        max-width: 100% !important;
-
-        height: 310px !important;
-
-        object-fit: contain !important;
-
-        object-position: center bottom !important;
-
-        margin: 0 auto !important;
-
-        position: relative !important;
-        z-index: 2 !important;
-    }
-
-    /* Círculo atrás do Davi */
-    .hero-image .circle-light {
-        position: absolute !important;
-
-        width: 250px !important;
-        height: 250px !important;
-
-        left: 50% !important;
-        top: 50% !important;
-
-        transform: translate(-50%, -45%) !important;
-
-        border: 1px solid rgba(212, 175, 55, 0.35) !important;
-
-        border-radius: 50% !important;
-
-        z-index: 0 !important;
-
-        pointer-events: none !important;
-    }
-
-    /* =====================================================
-       5 — BOTÃO DE AGENDAMENTO
-       ===================================================== */
-
-    .hero-buttons {
-        order: 5 !important;
-
-        width: 100% !important;
-        max-width: 340px !important;
-
-        margin: 10px auto 0 !important;
-
-        display: flex !important;
-
-        flex-direction: column !important;
-
-        align-items: center !important;
-
-        gap: 10px !important;
-    }
-
-    .hero-agendar {
-        width: 100% !important;
-
-        min-height: 52px !important;
-
-        padding: 14px 20px !important;
-
-        display: flex !important;
-
-        align-items: center !important;
-        justify-content: center !important;
-
-        border-radius: 10px !important;
-
-        background: #d4af37 !important;
-
-        color: #000000 !important;
-
-        font-size: 14px !important;
-        font-weight: 700 !important;
-
-        text-decoration: none !important;
-
-        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15) !important;
-    }
-
-    /* Esconde "Ver Serviços" na primeira tela */
-    .hero-servicos {
-        display: none !important;
-    }
-
-    /* =====================================================
-       6 — ESTATÍSTICAS
-       ===================================================== */
-
-    .hero-info {
-        display: none !important;
-    }
-
 }
 
-
 /* =========================================================
-   CELULARES MUITO PEQUENOS
+   CELULARES PEQUENOS — 400PX
    ========================================================= */
 
-@media (max-width: 400px) {
+@media screen and (max-width: 400px) {
 
-    .hero {
-        padding: 35px 15px 50px !important;
+    .navbar {
+        width: calc(100% - 18px);
+        margin-top: 8px;
+        padding: 10px 10px;
+        border-radius: 16px;
+        gap: 6px;
     }
 
-    .hero .subtitle {
-        font-size: 9px !important;
-        letter-spacing: 1.7px !important;
-        margin-bottom: 12px !important;
+    .logo {
+        font-size: 16px;
+        gap: 7px;
+    }
+
+    .logo img {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+    }
+
+    .navbar ul {
+        gap: 2px 10px;
+    }
+
+    .navbar li a {
+        min-height: 29px;
+        font-size: 11px;
+    }
+
+    .btn-nav {
+        max-width: 300px;
+        min-height: 46px;
+    }
+
+    .hero {
+        padding: 24px 11px 38px;
+    }
+
+    .tag {
+        font-size: 9px;
+        letter-spacing: 1.7px;
     }
 
     .hero h1 {
-        max-width: 330px !important;
-
-        font-size: 32px !important;
-
-        line-height: 1.08 !important;
+        max-width: 340px;
+        font-size: clamp(29px, 9vw, 37px);
     }
 
     .hero p {
-        max-width: 320px !important;
-
-        font-size: 13.5px !important;
-
-        line-height: 1.6 !important;
-
-        margin-top: 16px !important;
-    }
-
-    .hero-image {
-        height: 280px !important;
-
-        margin-top: 15px !important;
-    }
-
-    .hero-image img {
-        height: 280px !important;
-    }
-
-    .hero-image .circle-light {
-        width: 225px !important;
-        height: 225px !important;
+        max-width: 305px;
+        margin-top: 14px;
+        font-size: 13px;
+        line-height: 1.6;
     }
 
     .hero-buttons {
-        max-width: 320px !important;
-
-        margin-top: 5px !important;
-    }
-
-    .hero-agendar {
-        min-height: 50px !important;
-
-        font-size: 13px !important;
-    }
-
-}
-/* =========================================================
-   HERO MOBILE - FOTO + BOTÃO
-   ========================================================= */
-
-@media (max-width: 760px) {
-
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden !important;
-    }
-
-    .hero {
-        width: 100% !important;
-        min-height: calc(100svh - 100px) !important;
-        height: auto !important;
-
-        padding: 30px 18px 45px !important;
-
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        overflow: hidden !important;
-
-        position: relative !important;
-    }
-
-    .hero-content {
-        width: 100% !important;
-        max-width: 380px !important;
-
-        margin: 0 auto !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-
-        align-items: center !important;
-        justify-content: center !important;
-
-        position: relative !important;
-        z-index: 2 !important;
-    }
-
-    /* FOTO */
-
-    .hero-image {
-        width: 100% !important;
-        height: 390px !important;
-
-        margin: 10px auto 25px !important;
-
-        display: flex !important;
-        align-items: flex-end !important;
-        justify-content: center !important;
-
-        position: relative !important;
-
-        overflow: visible !important;
-    }
-
-    .hero-image img {
-        display: block !important;
-
-        width: auto !important;
-        max-width: 100% !important;
-
-        height: 390px !important;
-
-        object-fit: contain !important;
-        object-position: center bottom !important;
-
-        margin: 0 auto !important;
-
-        position: relative !important;
-        z-index: 2 !important;
-    }
-
-    /* CÍRCULO ATRÁS DA FOTO */
-
-    .hero-image .circle-light {
-        position: absolute !important;
-
-        width: 310px !important;
-        height: 310px !important;
-
-        left: 50% !important;
-        top: 48% !important;
-
-        transform: translate(-50%, -50%) !important;
-
-        border: 1px solid rgba(212, 175, 55, 0.35) !important;
-
-        border-radius: 50% !important;
-
-        z-index: 0 !important;
-
-        pointer-events: none !important;
-    }
-
-    /* BOTÃO */
-
-    .hero-buttons {
-        width: 100% !important;
-        max-width: 340px !important;
-
-        margin: 0 auto !important;
-
-        display: flex !important;
-
-        flex-direction: column !important;
-
-        align-items: center !important;
-
-        position: relative !important;
-
-        z-index: 5 !important;
-    }
-
-    .hero-agendar {
-        width: 100% !important;
-
-        min-height: 56px !important;
-
-        padding: 16px 20px !important;
-
-        display: flex !important;
-
-        align-items: center !important;
-        justify-content: center !important;
-
-        background: #d4af37 !important;
-
-        color: #000 !important;
-
-        border: none !important;
-
-        border-radius: 12px !important;
-
-        font-size: 15px !important;
-        font-weight: 700 !important;
-
-        text-decoration: none !important;
-
-        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.18) !important;
-    }
-
-    .hero-agendar:hover {
-        transform: translateY(-2px);
-    }
-
-}
-
-
-/* =========================================================
-   CELULARES PEQUENOS
-   ========================================================= */
-
-@media (max-width: 400px) {
-
-    .hero {
-        min-height: calc(100svh - 90px) !important;
-
-        padding: 25px 15px 35px !important;
-    }
-
-    .hero-image {
-        height: 340px !important;
-
-        margin-bottom: 20px !important;
-    }
-
-    .hero-image img {
-        height: 340px !important;
-    }
-
-    .hero-image .circle-light {
-        width: 275px !important;
-        height: 275px !important;
-    }
-
-    .hero-buttons {
-        max-width: 320px !important;
-    }
-
-    .hero-agendar {
-        min-height: 54px !important;
-
-        font-size: 14px !important;
-    }
-
-}
-/* =========================================================
-   DAVI IVANOV
-   HERO MOBILE — FRASE + FOTO + AGENDAMENTO
-   ========================================================= */
-
-@media (max-width: 760px) {
-
-    .hero {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: calc(100svh - 90px) !important;
-        height: auto !important;
-
-        padding: 25px 18px 45px !important;
-
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        overflow: hidden !important;
-        box-sizing: border-box !important;
-    }
-
-    .hero-content {
-        width: 100% !important;
-        max-width: 380px !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        box-sizing: border-box !important;
-    }
-
-    /* FRASE */
-
-    .hero-description {
-        order: 1 !important;
-
-        width: 100% !important;
-        max-width: 330px !important;
-
-        margin: 0 auto 15px !important;
-        padding: 0 !important;
-
-        color: #c8c8c8 !important;
-
-        font-family: 'Poppins', sans-serif !important;
-        font-size: 14px !important;
-        font-weight: 400 !important;
-
-        line-height: 1.55 !important;
-
-        text-align: center !important;
-
-        box-sizing: border-box !important;
-    }
-
-    /* FOTO */
-
-    .hero-image {
-        order: 2 !important;
-
-        position: relative !important;
-
-        width: 100% !important;
-        max-width: 330px !important;
-
-        height: 340px !important;
-
-        margin: 0 auto 18px !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        align-items: flex-end !important;
-        justify-content: center !important;
-
-        box-sizing: border-box !important;
-
-        overflow: visible !important;
-    }
-
-    .hero-image img {
-        display: block !important;
-
-        width: auto !important;
-        max-width: 100% !important;
-
-        height: 340px !important;
-        max-height: 340px !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        object-fit: contain !important;
-        object-position: center bottom !important;
-
-        position: relative !important;
-        z-index: 2 !important;
-    }
-
-    .hero-image .circle-light {
-        position: absolute !important;
-
-        width: 280px !important;
-        height: 280px !important;
-
-        left: 50% !important;
-        top: 50% !important;
-
-        transform: translate(-50%, -48%) !important;
-
-        border: 1px solid rgba(212, 175, 55, 0.35) !important;
-
-        border-radius: 50% !important;
-
-        z-index: 1 !important;
-
-        pointer-events: none !important;
-    }
-
-    /* BOTÃO */
-
-    .hero-buttons {
-        order: 3 !important;
-
-        width: 100% !important;
-        max-width: 340px !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-agendar {
-        display: flex !important;
-
-        width: 100% !important;
-        max-width: 340px !important;
-
-        min-height: 56px !important;
-
-        margin: 0 !important;
-        padding: 16px 20px !important;
-
-        align-items: center !important;
-        justify-content: center !important;
-
-        background: #d4af37 !important;
-        color: #000 !important;
-
-        border: none !important;
-        border-radius: 12px !important;
-
-        font-size: 15px !important;
-        font-weight: 700 !important;
-
-        text-decoration: none !important;
-
-        box-sizing: border-box !important;
-    }
-
-    /* GARANTE QUE NÃO APAREÇAM NO HERO MOBILE */
-
-    .hero-text {
-        display: none !important;
-    }
-
-    .hero-info {
-        display: none !important;
-    }
-
-    .hero-servicos {
-        display: none !important;
-    }
-
-}
-
-
-/* =========================================================
-   CELULAR PEQUENO — ATÉ 400px
-   ========================================================= */
-
-@media (max-width: 400px) {
-
-    .hero {
-        min-height: calc(100svh - 85px) !important;
-        padding: 20px 15px 40px !important;
-    }
-
-    .hero-description {
-        max-width: 310px !important;
-
-        margin-bottom: 10px !important;
-
-        font-size: 13px !important;
-        line-height: 1.5 !important;
-    }
-
-    .hero-image {
-        max-width: 310px !important;
-
-        height: 320px !important;
-
-        margin-bottom: 15px !important;
-    }
-
-    .hero-image img {
-        height: 320px !important;
-        max-height: 320px !important;
-    }
-
-    .hero-image .circle-light {
-        width: 260px !important;
-        height: 260px !important;
-    }
-
-    .hero-buttons,
-    .hero-agendar {
-        max-width: 320px !important;
-    }
-
-    .hero-agendar {
-        min-height: 54px !important;
-        font-size: 14px !important;
-    }
-
-}
-/* =========================================================
-   HERO MOBILE — DAVI IVANOV
-   FRASE + FOTO + AGENDAMENTO
-   ========================================================= */
-
-@media screen and (max-width: 760px) {
-
-    /* HERO */
-    .hero {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: auto !important;
-        height: auto !important;
-
-        margin: 0 !important;
-        padding: 25px 16px 45px !important;
-
-        overflow: hidden !important;
-
-        box-sizing: border-box !important;
-    }
-
-
-    /* CONTAINER */
-    .hero-content {
-        width: 100% !important;
-        max-width: 380px !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-
-        align-items: center !important;
-        justify-content: flex-start !important;
-
-        box-sizing: border-box !important;
-    }
-
-
-    /* =====================================================
-       FRASE
-       ===================================================== */
-
-    .hero-description {
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 330px !important;
-
-        height: auto !important;
-        min-height: 0 !important;
-
-        margin: 10px auto 18px !important;
-        padding: 0 !important;
-
-        color: #c8c8c8 !important;
-
-        font-family: 'Poppins', sans-serif !important;
-
-        font-size: 14px !important;
-        font-weight: 400 !important;
-
-        line-height: 1.6 !important;
-
-        text-align: center !important;
-
-        visibility: visible !important;
-        opacity: 1 !important;
-
-        position: relative !important;
-        z-index: 20 !important;
-
-        box-sizing: border-box !important;
-    }
-
-
-    /* =====================================================
-       FOTO
-       ===================================================== */
-
-    .hero-image {
-        display: flex !important;
-
-        position: relative !important;
-
-        width: 100% !important;
-        max-width: 330px !important;
-
-        height: 330px !important;
-
-        margin: 0 auto 20px !important;
-        padding: 0 !important;
-
-        align-items: flex-end !important;
-        justify-content: center !important;
-
-        box-sizing: border-box !important;
-
-        overflow: visible !important;
-
-        order: initial !important;
-    }
-
-
-    .hero-image img {
-        display: block !important;
-
-        position: relative !important;
-        z-index: 3 !important;
-
-        width: auto !important;
-        max-width: 100% !important;
-
-        height: 330px !important;
-        max-height: 330px !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        object-fit: contain !important;
-        object-position: center bottom !important;
-
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-
-
-    /* CÍRCULO ATRÁS DA FOTO */
-
-    .hero-image .circle-light {
-        display: block !important;
-
-        position: absolute !important;
-
-        z-index: 1 !important;
-
-        width: 270px !important;
-        height: 270px !important;
-
-        top: 50% !important;
-        left: 50% !important;
-
-        margin: 0 !important;
-
-        transform: translate(-50%, -48%) !important;
-
-        border-radius: 50% !important;
-
-        border: 1px solid rgba(212, 175, 55, 0.35) !important;
-
-        pointer-events: none !important;
-    }
-
-
-    /* =====================================================
-       BOTÃO
-       ===================================================== */
-
-    .hero-buttons {
-        display: flex !important;
-
-        position: relative !important;
-        z-index: 30 !important;
-
-        width: 100% !important;
-        max-width: 340px !important;
-
-        height: auto !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        align-items: center !important;
-        justify-content: center !important;
-
-        box-sizing: border-box !important;
-    }
-
-
-    .hero-agendar {
-        display: flex !important;
-
-        width: 100% !important;
-        max-width: 340px !important;
-
-        min-height: 56px !important;
-
-        margin: 0 !important;
-        padding: 16px 20px !important;
-
-        align-items: center !important;
-        justify-content: center !important;
-
-        background: #d4af37 !important;
-        color: #000 !important;
-
-        border: none !important;
-        border-radius: 12px !important;
-
-        font-family: 'Poppins', sans-serif !important;
-
-        font-size: 15px !important;
-        font-weight: 700 !important;
-
-        text-align: center !important;
-        text-decoration: none !important;
-
-        box-sizing: border-box !important;
-    }
-
-
-    /* =====================================================
-       ESCONDE O QUE NÃO QUEREMOS NA PRIMEIRA TELA
-       ===================================================== */
-
-    .hero-text {
-        display: none !important;
-    }
-
-    .hero-info {
-        display: none !important;
-    }
-
-    .hero-buttons .btn-outline {
-        display: none !important;
-    }
-
-}
-
-
-/* =========================================================
-   CELULAR 400PX OU MENOR
-   ========================================================= */
-
-@media screen and (max-width: 400px) {
-
-    .hero {
-        padding: 20px 15px 40px !important;
-    }
-
-    .hero-description {
-        max-width: 315px !important;
-
-        margin-top: 8px !important;
-        margin-bottom: 15px !important;
-
-        font-size: 13px !important;
-        line-height: 1.55 !important;
-    }
-
-    .hero-image {
-        max-width: 310px !important;
-        height: 315px !important;
-
-        margin-bottom: 15px !important;
-    }
-
-    .hero-image img {
-        height: 315px !important;
-        max-height: 315px !important;
-    }
-
-    .hero-image .circle-light {
-        width: 260px !important;
-        height: 260px !important;
-    }
-
-    .hero-buttons,
-    .hero-agendar {
-        max-width: 320px !important;
-    }
-
-    .hero-agendar {
-        min-height: 54px !important;
-        font-size: 14px !important;
-    }
-
-}
-/* =========================================================
-   HERO MOBILE — DAVI IVANOV
-   LAYOUT:
-   BANNER → FRASE → FOTO → AGENDAR
-   ========================================================= */
-
-@media screen and (max-width: 760px) {
-
-    /* =====================================================
-       ÁREA DO HERO
-       ===================================================== */
-
-    .hero {
-        position: relative !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        height: auto !important;
-        min-height: calc(100svh - 90px) !important;
-
-        margin: 0 !important;
-
-        padding: 22px 16px 35px !important;
-
-        overflow: hidden !important;
-
-        box-sizing: border-box !important;
-
-        background: #090909 !important;
-    }
-
-
-    /* =====================================================
-       CONTEÚDO
-       ===================================================== */
-
-    .hero-mobile-content {
-        position: relative !important;
-        z-index: 10 !important;
-
-        width: 100% !important;
-        max-width: 390px !important;
-
-        min-height: calc(100svh - 150px) !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-
-        align-items: center !important;
-        justify-content: center !important;
-
-        box-sizing: border-box !important;
-    }
-
-
-    /* =====================================================
-       FRASE
-       ===================================================== */
-
-    .hero-mobile-text {
-        position: relative !important;
-        z-index: 20 !important;
-
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 320px !important;
-
-        margin: 5px auto 14px !important;
-        padding: 0 5px !important;
-
-        color: #d0d0d0 !important;
-
-        font-family: 'Poppins', sans-serif !important;
-
-        font-size: 14px !important;
-        font-weight: 400 !important;
-
-        line-height: 1.55 !important;
-
-        text-align: center !important;
-
-        visibility: visible !important;
-        opacity: 1 !important;
-
-        box-sizing: border-box !important;
-    }
-
-
-    /* =====================================================
-       FOTO
-       ===================================================== */
-
-    .hero-mobile-photo {
-        position: relative !important;
-        z-index: 5 !important;
-
-        width: 100% !important;
-        max-width: 335px !important;
-
-        height: 345px !important;
-
-        margin: 0 auto 18px !important;
-        padding: 0 !important;
-
-        display: flex !important;
-
-        align-items: flex-end !important;
-        justify-content: center !important;
-
-        box-sizing: border-box !important;
-
-        overflow: visible !important;
-    }
-
-
-    /* FOTO */
-
-    .hero-mobile-photo img {
-        position: relative !important;
-        z-index: 3 !important;
-
-        display: block !important;
-
-        width: auto !important;
-        max-width: 100% !important;
-
-        height: 345px !important;
-        max-height: 345px !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        object-fit: contain !important;
-        object-position: center bottom !important;
-
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
-
-    /* =====================================================
-       CÍRCULO DOURADO
-       ===================================================== */
-
-    .hero-photo-circle {
-        position: absolute !important;
-        z-index: 1 !important;
-
-        width: 285px !important;
-        height: 285px !important;
-
-        left: 50% !important;
-        top: 48% !important;
-
-        transform: translate(-50%, -50%) !important;
-
-        border: 1px solid rgba(212, 175, 55, 0.32) !important;
-
-        border-radius: 50% !important;
-
-        box-sizing: border-box !important;
-
-        pointer-events: none !important;
-    }
-
-
-    /* =====================================================
-       BOTÃO
-       ===================================================== */
-
-    .hero-mobile-button {
-        position: relative !important;
-        z-index: 30 !important;
-
-        display: flex !important;
-
-        width: 100% !important;
-        max-width: 340px !important;
-
-        min-height: 56px !important;
-
-        margin: 0 auto !important;
-        padding: 15px 20px !important;
-
-        align-items: center !important;
-        justify-content: center !important;
-
-        box-sizing: border-box !important;
-
-        background: #d4af37 !important;
-
-        color: #050505 !important;
-
-        border: none !important;
-        border-radius: 12px !important;
-
-        font-family: 'Poppins', sans-serif !important;
-
-        font-size: 15px !important;
-        font-weight: 700 !important;
-
-        line-height: 1 !important;
-
-        text-align: center !important;
-        text-decoration: none !important;
-
-        box-shadow:
-            0 10px 30px rgba(212, 175, 55, 0.18) !important;
-
-        transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease !important;
-    }
-
-
-    .hero-mobile-button:active {
-        transform: scale(0.98) !important;
-    }
-
-
-    /* =====================================================
-       ESCONDE A ESTRUTURA ANTIGA DO HERO NO MOBILE
-       ===================================================== */
-
-    .hero > .hero-content {
-        display: none !important;
-    }
-
-}
-
-
-/* =========================================================
-   CELULAR PEQUENO — 400PX
-   ========================================================= */
-
-@media screen and (max-width: 400px) {
-
-    .hero {
-        min-height: calc(100svh - 85px) !important;
-
-        padding: 18px 14px 30px !important;
-    }
-
-
-    .hero-mobile-content {
-        max-width: 360px !important;
-
-        min-height: calc(100svh - 135px) !important;
-    }
-
-
-    /* FRASE */
-
-    .hero-mobile-text {
-        max-width: 305px !important;
-
-        margin-bottom: 10px !important;
-
-        font-size: 13px !important;
-
-        line-height: 1.5 !important;
-    }
-
-
-    /* FOTO */
-
-    .hero-mobile-photo {
-        max-width: 310px !important;
-
-        height: 310px !important;
-
-        margin-bottom: 14px !important;
-    }
-
-
-    .hero-mobile-photo img {
-        height: 310px !important;
-
-        max-height: 310px !important;
-    }
-
-
-    .hero-photo-circle {
-        width: 255px !important;
-        height: 255px !important;
-    }
-
-
-    /* BOTÃO */
-
-    .hero-mobile-button {
-        max-width: 320px !important;
-
-        min-height: 54px !important;
-
-        font-size: 14px !important;
-    }
-
-}
-/* =========================================================
-   DAVI IVANOV — ÚLTIMA CORREÇÃO DO HERO MOBILE
-   Ordem: BANNER → FRASE → FOTO → BOTÃO
-   Este bloco fica por último de propósito.
-   ========================================================= */
-
-@media screen and (max-width: 760px) {
-
-    html,
-    body {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        overflow-x: hidden !important;
-    }
-
-    .hero {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 0 !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 22px 16px 35px !important;
-        overflow: hidden !important;
-        box-sizing: border-box !important;
+        max-width: 305px;
+        margin-top: 21px;
     }
-
-    /* O conteúdo antigo continua existindo, mas no celular
-       usamos a estrutura atual em uma única coluna. */
-    .hero-content {
-        width: 100% !important;
-        max-width: 390px !important;
-        min-width: 0 !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Se o hero.html já tiver a estrutura nova */
-    .hero-mobile-content {
-        width: 100% !important;
-        max-width: 390px !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        box-sizing: border-box !important;
-    }
-
-    /* FRASE — estrutura nova */
-    .hero-mobile-text {
-        display: block !important;
-        width: 100% !important;
-        max-width: 320px !important;
-        margin: 4px auto 16px !important;
-        padding: 0 4px !important;
-        color: #d0d0d0 !important;
-        font-family: "Poppins", sans-serif !important;
-        font-size: 14px !important;
-        font-weight: 400 !important;
-        line-height: 1.55 !important;
-        text-align: center !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 50 !important;
-        box-sizing: border-box !important;
-    }
-
-    /* FOTO — estrutura nova */
-    .hero-mobile-photo {
-        position: relative !important;
-        width: 100% !important;
-        max-width: 335px !important;
-        height: 345px !important;
-        margin: 0 auto 18px !important;
-        padding: 0 !important;
-        display: flex !important;
-        align-items: flex-end !important;
-        justify-content: center !important;
-        overflow: visible !important;
-        box-sizing: border-box !important;
-    }
-
-    .hero-mobile-photo img {
-        position: relative !important;
-        z-index: 3 !important;
-        display: block !important;
-        width: auto !important;
-        max-width: 100% !important;
-        height: 345px !important;
-        max-height: 345px !important;
-        margin: 0 auto !important;
-        object-fit: contain !important;
-        object-position: center bottom !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
-    .hero-photo-circle {
-        position: absolute !important;
-        z-index: 1 !important;
-        width: 285px !important;
-        height: 285px !important;
-        top: 48% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        border: 1px solid rgba(212,175,55,.32) !important;
-        border-radius: 50% !important;
-        pointer-events: none !important;
-    }
-
-    /* BOTÃO — estrutura nova */
-    .hero-mobile-button {
-        position: relative !important;
-        z-index: 50 !important;
-        display: flex !important;
-        width: 100% !important;
-        max-width: 340px !important;
-        min-height: 56px !important;
-        margin: 0 auto !important;
-        padding: 16px 20px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: #D4AF37 !important;
-        color: #050505 !important;
-        border: 0 !important;
-        border-radius: 12px !important;
-        font-family: "Poppins", sans-serif !important;
-        font-size: 15px !important;
-        font-weight: 700 !important;
-        line-height: 1 !important;
-        text-align: center !important;
-        text-decoration: none !important;
-        box-sizing: border-box !important;
-    }
-
-    /* =====================================================
-       COMPATIBILIDADE COM O hero.html ANTIGO
-       ===================================================== */
 
-    .hero-content > .hero-text {
-        display: contents !important;
+    .btn-primary,
+    .btn-secondary {
+        min-height: 52px;
+        font-size: 13px;
     }
 
-    /* Não mostrar título/subtítulo antigos no celular */
-    .hero-content > .hero-text > .subtitle,
-    .hero-content > .hero-text > .tag,
-    .hero-content > .hero-text > h1,
-    .hero-content > .hero-text > .hero-info {
-        display: none !important;
+    .sobre,
+    .servicos,
+    .instagram {
+        padding: 58px 13px;
     }
 
-    /* A frase antiga vira a frase do primeiro bloco */
-    .hero-content > .hero-text > p {
-        display: block !important;
-        order: 1 !important;
-        width: 100% !important;
-        max-width: 320px !important;
-        margin: 4px auto 16px !important;
-        padding: 0 4px !important;
-        color: #d0d0d0 !important;
-        font-family: "Poppins", sans-serif !important;
-        font-size: 14px !important;
-        line-height: 1.55 !important;
-        text-align: center !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 50 !important;
-        box-sizing: border-box !important;
+    .sobre h2,
+    .servicos h2 {
+        font-size: 29px;
     }
 
-    /* Foto depois da frase */
-    .hero-content > .hero-image {
-        order: 2 !important;
-        width: 100% !important;
-        max-width: 335px !important;
-        height: 345px !important;
-        margin: 0 auto 18px !important;
-        display: flex !important;
-        align-items: flex-end !important;
-        justify-content: center !important;
-        position: relative !important;
-        overflow: visible !important;
-        box-sizing: border-box !important;
+    .sobre p,
+    .card p,
+    .service-card p,
+    .instagram-card p {
+        font-size: 14px;
     }
 
-    .hero-content > .hero-image img {
-        display: block !important;
-        width: auto !important;
-        max-width: 100% !important;
-        height: 345px !important;
-        max-height: 345px !important;
-        margin: 0 auto !important;
-        object-fit: contain !important;
-        object-position: center bottom !important;
-        position: relative !important;
-        z-index: 3 !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+    .card {
+        padding: 23px 18px;
     }
 
-    .hero-content > .hero-image .circle-light {
-        display: block !important;
-        position: absolute !important;
-        z-index: 1 !important;
-        width: 285px !important;
-        height: 285px !important;
-        left: 50% !important;
-        top: 48% !important;
-        transform: translate(-50%, -50%) !important;
-        border: 1px solid rgba(212,175,55,.32) !important;
-        border-radius: 50% !important;
-        pointer-events: none !important;
+    .service-card img {
+        height: 190px;
     }
 
-    /* Botão antigo depois da foto */
-    .hero-content > .hero-text > .hero-buttons {
-        order: 3 !important;
-        width: 100% !important;
-        max-width: 340px !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        box-sizing: border-box !important;
+    .service-card h3 {
+        padding-left: 18px;
+        padding-right: 18px;
+        font-size: 21px;
     }
 
-    .hero-content > .hero-text > .hero-buttons .btn,
-    .hero-content > .hero-text > .hero-buttons .btn-primary,
-    .hero-content > .hero-text > .hero-buttons .hero-agendar {
-        display: flex !important;
-        width: 100% !important;
-        max-width: 340px !important;
-        min-height: 56px !important;
-        margin: 0 !important;
-        padding: 16px 20px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: #D4AF37 !important;
-        color: #050505 !important;
-        border: 0 !important;
-        border-radius: 12px !important;
-        font-size: 15px !important;
-        font-weight: 700 !important;
-        text-align: center !important;
-        text-decoration: none !important;
-        box-sizing: border-box !important;
+    .service-card p {
+        padding-left: 18px;
+        padding-right: 18px;
     }
 
-    /* Segundo botão não aparece no primeiro banner mobile */
-    .hero-content > .hero-text > .hero-buttons .btn-outline,
-    .hero-content > .hero-text > .hero-buttons .btn-secondary {
-        display: none !important;
+    .instagram-card {
+        padding: 34px 16px;
     }
 
-    /* Se já estiver usando a estrutura nova, não duplica o conteúdo antigo */
-    .hero-mobile-content ~ * {
-        box-sizing: border-box;
+    footer {
+        padding: 42px 15px;
     }
 }
 
 /* =========================================================
-   400PX OU MENOR
+   CELULARES MUITO PEQUENOS — 360PX
    ========================================================= */
 
-@media screen and (max-width: 400px) {
-
-    .hero {
-        padding: 18px 14px 30px !important;
-    }
-
-    .hero-mobile-content,
-    .hero-content {
-        max-width: 360px !important;
-    }
-
-    .hero-mobile-text,
-    .hero-content > .hero-text > p {
-        max-width: 305px !important;
-        margin-bottom: 13px !important;
-        font-size: 13px !important;
-        line-height: 1.5 !important;
-    }
-
-    .hero-mobile-photo,
-    .hero-content > .hero-image {
-        max-width: 315px !important;
-        height: 315px !important;
-        margin-bottom: 15px !important;
-    }
-
-    .hero-mobile-photo img,
-    .hero-content > .hero-image img {
-        height: 315px !important;
-        max-height: 315px !important;
-    }
-
-    .hero-photo-circle,
-    .hero-content > .hero-image .circle-light {
-        width: 260px !important;
-        height: 260px !important;
-    }
-
-    .hero-mobile-button,
-    .hero-content > .hero-text > .hero-buttons,
-    .hero-content > .hero-text > .hero-buttons .btn,
-    .hero-content > .hero-text > .hero-buttons .btn-primary,
-    .hero-content > .hero-text > .hero-buttons .hero-agendar {
-        max-width: 320px !important;
-    }
-
-    .hero-mobile-button,
-    .hero-content > .hero-text > .hero-buttons .btn,
-    .hero-content > .hero-text > .hero-buttons .btn-primary,
-    .hero-content > .hero-text > .hero-buttons .hero-agendar {
-        min-height: 54px !important;
-        font-size: 14px !important;
-    }
-}
-/* =========================================================
-   FOTO DO DAVI — AJUSTE FINAL
-   SOMENTE A FOTO
-   ========================================================= */
-
-@media screen and (max-width: 760px) {
-
-    .hero-mobile-photo,
-    .hero-content > .hero-image {
-        position: relative !important;
-        width: 100% !important;
-        max-width: 330px !important;
-        height: 315px !important;
-
-        margin: 0 auto 18px !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        align-items: flex-end !important;
-        justify-content: center !important;
-
-        overflow: visible !important;
-        box-sizing: border-box !important;
-    }
-
-    .hero-mobile-photo img,
-    .hero-content > .hero-image img {
-        position: relative !important;
-        z-index: 5 !important;
-
-        display: block !important;
-
-        width: auto !important;
-        max-width: 100% !important;
-
-        height: 315px !important;
-        max-height: 315px !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        object-fit: contain !important;
-        object-position: center bottom !important;
-
-        opacity: 1 !important;
-        visibility: visible !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-photo-circle,
-    .hero-content > .hero-image .circle-light {
-        position: absolute !important;
-        z-index: 1 !important;
-
-        width: 270px !important;
-        height: 270px !important;
-
-        left: 50% !important;
-        top: 47% !important;
-
-        margin: 0 !important;
-        transform: translate(-50%, -50%) !important;
-
-        border-radius: 50% !important;
-        border: 1px solid rgba(212, 175, 55, .30) !important;
-
-        pointer-events: none !important;
-        box-sizing: border-box !important;
-    }
-}
-
-
-/* 400PX */
-@media screen and (max-width: 400px) {
-
-    .hero-mobile-photo,
-    .hero-content > .hero-image {
-        max-width: 300px !important;
-        height: 290px !important;
-        margin-bottom: 16px !important;
-    }
-
-    .hero-mobile-photo img,
-    .hero-content > .hero-image img {
-        height: 290px !important;
-        max-height: 290px !important;
-    }
-
-    .hero-photo-circle,
-    .hero-content > .hero-image .circle-light {
-        width: 250px !important;
-        height: 250px !important;
-    }
-}
-
-
-/* 360PX */
 @media screen and (max-width: 360px) {
 
-    .hero-mobile-photo,
-    .hero-content > .hero-image {
-        max-width: 280px !important;
-        height: 275px !important;
+    .navbar {
+        width: calc(100% - 12px);
+        padding: 9px 8px;
     }
 
-    .hero-mobile-photo img,
-    .hero-content > .hero-image img {
-        height: 275px !important;
-        max-height: 275px !important;
+    .logo {
+        font-size: 15px;
     }
 
-    .hero-photo-circle,
-    .hero-content > .hero-image .circle-light {
-        width: 230px !important;
-        height: 230px !important;
+    .logo img {
+        width: 37px;
+        height: 37px;
+        flex-basis: 37px;
+    }
+
+    .navbar ul {
+        gap: 1px 8px;
+    }
+
+    .navbar li a {
+        font-size: 10px;
+        min-height: 27px;
+    }
+
+    .hero {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    .hero h1 {
+        max-width: 320px;
+        font-size: 28px;
+    }
+
+    .hero p {
+        max-width: 285px;
+        font-size: 12.5px;
+    }
+
+    .hero-buttons {
+        max-width: 285px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        min-height: 50px;
+        font-size: 12.5px;
+    }
+
+    .sobre,
+    .servicos,
+    .instagram {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+
+    .sobre h2,
+    .servicos h2 {
+        font-size: 27px;
+    }
+
+    .service-card img {
+        height: 180px;
     }
 }
+
 /* =========================================================
-   CORREÇÃO FINAL DA FOTO DO DAVI — MOBILE
+   IPHONE SAFARI
+   Evita zoom automático nos campos e problemas de viewport.
    ========================================================= */
 
-@media screen and (max-width: 760px) {
+@supports (-webkit-touch-callout: none) {
 
-    .hero-image {
-        width: 100% !important;
-        max-width: 320px !important;
-        height: 320px !important;
-
-        margin: 25px auto 20px !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        align-items: flex-end !important;
-        justify-content: center !important;
-
-        position: relative !important;
-        overflow: visible !important;
-
-        box-sizing: border-box !important;
+    input,
+    select,
+    textarea {
+        font-size: 16px;
     }
 
-    .hero-image img {
-        display: block !important;
-
-        width: auto !important;
-        max-width: 100% !important;
-
-        height: 320px !important;
-        max-height: 320px !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        object-fit: contain !important;
-        object-position: center bottom !important;
-
-        position: relative !important;
-        z-index: 5 !important;
-
-        opacity: 1 !important;
-        visibility: visible !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-image .circle-light {
-        position: absolute !important;
-
-        width: 270px !important;
-        height: 270px !important;
-
-        left: 50% !important;
-        top: 48% !important;
-
-        transform: translate(-50%, -50%) !important;
-
-        border-radius: 50% !important;
-        border: 1px solid rgba(212,175,55,.30) !important;
-
-        z-index: 1 !important;
-        pointer-events: none !important;
+    .hero {
+        min-height: 0;
     }
 }
 
-
-/* CELULARES ATÉ 400PX */
-@media screen and (max-width: 400px) {
-
-    .hero-image {
-        max-width: 300px !important;
-        height: 300px !important;
-
-        margin-top: 22px !important;
-        margin-bottom: 18px !important;
-    }
-
-    .hero-image img {
-        height: 300px !important;
-        max-height: 300px !important;
-    }
-
-    .hero-image .circle-light {
-        width: 250px !important;
-        height: 250px !important;
-    }
-}
-
-
-/* CELULARES PEQUENOS */
-@media screen and (max-width: 360px) {
-
-    .hero-image {
-        max-width: 280px !important;
-        height: 280px !important;
-    }
-
-    .hero-image img {
-        height: 280px !important;
-        max-height: 280px !important;
-    }
-
-    .hero-image .circle-light {
-        width: 230px !important;
-        height: 230px !important;
-    }
-}
 /* =========================================================
-   CORREÇÃO FINAL DA FOTO DO DAVI — MOBILE
+   ACESSIBILIDADE
    ========================================================= */
 
-@media screen and (max-width: 760px) {
+@media (prefers-reduced-motion: reduce) {
 
-    .hero-image {
-        width: 100% !important;
-        max-width: 320px !important;
-        height: 320px !important;
-
-        margin: 25px auto 20px !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        align-items: flex-end !important;
-        justify-content: center !important;
-
-        position: relative !important;
-        overflow: visible !important;
-
-        box-sizing: border-box !important;
+    html {
+        scroll-behavior: auto;
     }
 
-    .hero-image img {
-        display: block !important;
-
-        width: auto !important;
-        max-width: 100% !important;
-
-        height: 320px !important;
-        max-height: 320px !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        object-fit: contain !important;
-        object-position: center bottom !important;
-
-        position: relative !important;
-        z-index: 5 !important;
-
-        opacity: 1 !important;
-        visibility: visible !important;
-
-        box-sizing: border-box !important;
-    }
-
-    .hero-image .circle-light {
-        position: absolute !important;
-
-        width: 270px !important;
-        height: 270px !important;
-
-        left: 50% !important;
-        top: 48% !important;
-
-        transform: translate(-50%, -50%) !important;
-
-        border-radius: 50% !important;
-        border: 1px solid rgba(212,175,55,.30) !important;
-
-        z-index: 1 !important;
-        pointer-events: none !important;
-    }
-}
-
-
-/* CELULARES ATÉ 400PX */
-@media screen and (max-width: 400px) {
-
-    .hero-image {
-        max-width: 300px !important;
-        height: 300px !important;
-
-        margin-top: 22px !important;
-        margin-bottom: 18px !important;
-    }
-
-    .hero-image img {
-        height: 300px !important;
-        max-height: 300px !important;
-    }
-
-    .hero-image .circle-light {
-        width: 250px !important;
-        height: 250px !important;
-    }
-}
-
-
-/* CELULARES PEQUENOS */
-@media screen and (max-width: 360px) {
-
-    .hero-image {
-        max-width: 280px !important;
-        height: 280px !important;
-    }
-
-    .hero-image img {
-        height: 280px !important;
-        max-height: 280px !important;
-    }
-
-    .hero-image .circle-light {
-        width: 230px !important;
-        height: 230px !important;
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
     }
 }
