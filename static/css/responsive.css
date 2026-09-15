@@ -630,3 +630,60 @@ iframe {
         transition-duration: .01ms !important;
     }
 }
+/* =========================================================
+   BOTÃO AGENDAR — CORREÇÃO FINAL
+   ========================================================= */
+
+@media screen and (max-width: 760px) {
+
+    .hero-mobile-button {
+        display: flex !important;
+
+        width: 100% !important;
+        max-width: 330px !important;
+        min-height: 54px !important;
+
+        margin: 0 auto !important;
+        padding: 15px 20px !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        background: #D4AF37 !important;
+        color: #050505 !important;
+
+        border: 1px solid #D4AF37 !important;
+        border-radius: 12px !important;
+
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+
+        text-align: center !important;
+        text-decoration: none !important;
+
+        box-shadow: 0 8px 25px rgba(212, 175, 55, .18) !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .hero-mobile-button:hover,
+    .hero-mobile-button:active,
+    .hero-mobile-button:focus {
+        background: #E2C04A !important;
+        color: #050505 !important;
+        border-color: #E2C04A !important;
+        transform: none !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .hero-mobile-button {
+        max-width: 310px !important;
+        min-height: 52px !important;
+        font-size: 13px !important;
+    }
+}
