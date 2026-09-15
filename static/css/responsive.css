@@ -1,17 +1,18 @@
 /* =========================================================
-   UNDERGROUND BARBEARIA — STYLE.CSS
-   Versão responsiva / Mobile First
+   RESPONSIVE.CSS — VERSÃO FINAL
+   Davi Ivanov | Underground
+   Estrutura real: navbar + hero-mobile-content
+   Android + iPhone + Tablet
    ========================================================= */
 
-:root {
-    --bg: #050505;
-    --surface: #101010;
-    --surface-2: #171717;
-    --text: #f5f5f5;
-    --muted: #bdbdbd;
-    --gold: #D4AF37;
-    --gold-light: #f5cb4c;
-    --border: rgba(255,255,255,.08);
+/* ---------- SEGURANÇA GLOBAL ---------- */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden !important;
 }
 
 *,
@@ -20,1500 +21,574 @@
     box-sizing: border-box;
 }
 
-html {
-    width: 100%;
+img,
+svg,
+video,
+iframe {
     max-width: 100%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
-
-body {
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Poppins", sans-serif;
-    line-height: 1.6;
-    -webkit-text-size-adjust: 100%;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button,
-input,
-select,
-textarea {
-    font: inherit;
-}
-
-.container {
-    width: min(1200px, 92%);
-    margin: 0 auto;
-}
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-header {
-    position: relative;
-    z-index: 1000;
-}
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    min-height: 70px;
-    padding: 12px 4%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    background: rgba(5,5,5,.92);
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-
-.logo {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    white-space: nowrap;
-}
-
-.logo span {
-    color: #fff;
-}
-
-.navbar ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 26px;
-}
-
-.navbar li {
-    margin: 0;
-}
-
-.navbar li a {
-    display: inline-block;
-    padding: 8px 2px;
-    color: #eee;
-    font-size: 14px;
-    transition: .25s ease;
-}
-
-.navbar li a:hover {
-    color: var(--gold);
-}
-
-.btn-nav,
-.btn-primary,
-.btn-secondary,
-.btn-footer {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    border-radius: 10px;
-    font-weight: 700;
-    text-align: center;
-    cursor: pointer;
-    transition: .3s ease;
-}
-
-.btn-nav {
-    flex: 0 0 auto;
-    padding: 12px 20px;
-    background: var(--gold);
-    color: #000;
-}
-
-.btn-nav:hover,
-.btn-primary:hover,
-.btn-footer:hover {
-    transform: translateY(-2px);
-    background: var(--gold-light);
-    box-shadow: 0 12px 28px rgba(212,175,55,.22);
-}
-
-.btn-primary {
-    padding: 14px 28px;
-    background: var(--gold);
-    color: #000;
-}
-
-.btn-secondary {
-    padding: 14px 28px;
-    border: 1px solid rgba(212,175,55,.65);
-    color: #fff;
-    background: rgba(0,0,0,.25);
-}
-
-.btn-secondary:hover {
-    background: rgba(212,175,55,.12);
-    border-color: var(--gold);
-}
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
-.hero {
-    position: relative;
-    min-height: min(780px, calc(100vh - 70px));
-    padding: 110px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background:
-        linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.52)),
-        #080808;
-    background-position: center;
-    background-size: cover;
-}
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at center, rgba(212,175,55,.06), transparent 55%);
-    pointer-events: none;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    width: min(850px, 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.tag {
-    display: inline-block;
-    margin-bottom: 18px;
-    color: var(--gold);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
-
-.hero h1 {
-    margin: 0;
-    max-width: 850px;
-    font-size: clamp(38px, 6vw, 72px);
-    line-height: 1.08;
-    letter-spacing: -1.5px;
-}
-
-.hero p {
-    width: min(700px, 100%);
-    margin: 25px auto 0;
-    color: #c8c8c8;
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-.hero-buttons {
-    width: 100%;
-    margin-top: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
-/* =========================================================
-   SOBRE
-   ========================================================= */
-
-.sobre {
-    padding: 100px 6%;
-    background: #080808;
-}
-
-.sobre .container {
-    max-width: 1300px;
-}
-
-.sobre .mini {
-    color: var(--gold);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.sobre h2 {
-    margin: 18px 0 25px;
-    max-width: 700px;
-    font-size: clamp(34px, 5vw, 52px);
-    line-height: 1.15;
-}
-
-.sobre p {
-    max-width: 760px;
-    margin: 0;
-    color: var(--muted);
-    font-size: 18px;
-    line-height: 1.9;
-}
-
-.cards {
-    margin-top: 55px;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-}
-
-.card {
-    min-width: 0;
-    padding: 34px 28px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    transition: .35s ease;
-}
-
-.card:hover {
-    transform: translateY(-7px);
-    border-color: var(--gold);
-    box-shadow: 0 18px 40px rgba(212,175,55,.12);
-}
-
-.card h3 {
-    margin: 0 0 14px;
-    color: var(--gold);
-    font-size: 25px;
-}
-
-.card p {
-    margin: 0;
-    color: #c9c9c9;
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-/* =========================================================
-   SERVIÇOS
-   ========================================================= */
-
-.servicos {
-    padding: 100px 6%;
-    background: #050505;
-}
-
-.servicos h2 {
-    margin: 0 0 55px;
-    text-align: center;
-    font-size: clamp(34px, 5vw, 52px);
-    line-height: 1.15;
-}
-
-.services-grid {
-    width: min(1300px, 100%);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
-}
-
-.service-card {
-    min-width: 0;
-    overflow: hidden;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    transition: .35s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--gold);
-    box-shadow: 0 20px 45px rgba(212,175,55,.15);
-}
-
-.service-card img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-}
-
-.service-card h3 {
-    margin: 0;
-    padding: 26px 28px 8px;
-    color: var(--gold);
-    font-size: 27px;
-}
-
-.service-card p {
-    margin: 0;
-    padding: 0 28px 30px;
-    color: #c7c7c7;
-    line-height: 1.8;
-}
-
-/* =========================================================
-   INSTAGRAM
-   ========================================================= */
-
-.instagram {
-    padding: 100px 6%;
-    background: #080808;
-}
-
-.instagram-card {
-    width: min(900px, 100%);
-    margin: 0 auto;
-    padding: 65px;
-    text-align: center;
-    background: linear-gradient(135deg, #111, #1d1d1d);
-    border: 1px solid rgba(212,175,55,.2);
-    border-radius: 24px;
-}
-
-.instagram-card span {
-    color: var(--gold);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.instagram-card h2 {
-    margin: 18px 0;
-    font-size: clamp(30px, 5vw, 46px);
-    overflow-wrap: anywhere;
-}
-
-.instagram-card p {
-    margin: 0 0 35px;
-    color: #bfbfbf;
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-    padding: 65px 6%;
-    text-align: center;
-    background: #000;
-    border-top: 1px solid var(--border);
-}
-
-footer h2 {
-    margin: 0 0 12px;
-    color: var(--gold);
-    font-size: 32px;
-}
-
-footer p {
-    margin: 0 0 28px;
-    color: #9c9c9c;
-}
-
-.btn-footer {
-    padding: 14px 30px;
-    background: var(--gold);
-    color: #000;
-}
-
-/* =========================================================
-   ANIMAÇÃO
-   ========================================================= */
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-content,
-.card,
-.service-card,
-.instagram-card {
-    animation: fadeUp .7s ease both;
-}
-
-button,
-a,
-.card,
-.service-card,
-.instagram-card {
-    transition: .3s ease;
 }
 
 /* =========================================================
    TABLET
    ========================================================= */
 
-@media (max-width: 1000px) {
-    .navbar {
-        padding: 12px 3%;
-        gap: 16px;
-    }
-
-    .navbar ul {
-        gap: 17px;
-    }
-
-    .cards,
-    .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .service-card:last-child {
-        grid-column: 1 / -1;
-        width: min(600px, 100%);
-        margin: 0 auto;
-    }
-}
-
-/* =========================================================
-   CELULAR
-   ========================================================= */
-
-@media (max-width: 760px) {
-    html {
-        scroll-padding-top: 20px;
-    }
+@media screen and (max-width: 1000px) and (min-width: 761px) {
 
     .navbar {
-        position: relative;
-        width: 100%;
-        min-height: auto;
-        padding: 16px 18px;
-        flex-direction: column;
-        justify-content: center;
-        gap: 13px;
+        width: calc(100% - 40px) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
-    .logo {
-        font-size: 19px;
-    }
-
-    .navbar ul {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px 18px;
-    }
-
-    .navbar li a {
-        padding: 5px 0;
-        font-size: 13px;
-    }
-
-    .btn-nav {
-        width: 100%;
-        max-width: 340px;
-        min-height: 46px;
-    }
-
-    .hero {
-        min-height: calc(100svh - 190px);
-        padding: 75px 20px 65px;
-    }
-
-    .tag {
-        margin-bottom: 14px;
-        font-size: 11px;
-        letter-spacing: 2px;
-    }
-
-    .hero h1 {
-        font-size: clamp(34px, 10vw, 44px);
-        line-height: 1.12;
-        letter-spacing: -0.8px;
-    }
-
-    .hero p {
-        margin-top: 20px;
-        font-size: 15px;
-        line-height: 1.75;
-    }
-
-    .hero-buttons {
-        max-width: 360px;
-        margin-top: 28px;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        min-height: 50px;
-    }
-
-    .sobre,
-    .servicos,
-    .instagram {
-        padding: 75px 20px;
-    }
-
-    .sobre h2,
-    .servicos h2 {
-        font-size: 35px;
-    }
-
-    .sobre p {
-        font-size: 15px;
-        line-height: 1.8;
-    }
-
-    .cards,
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-    .cards {
-        margin-top: 38px;
-    }
-
-    .card {
-        padding: 28px 22px;
-    }
-
-    .card h3 {
-        font-size: 22px;
-    }
-
-    .card p {
-        font-size: 15px;
-    }
-
-    .service-card:last-child {
-        grid-column: auto;
-        width: 100%;
-    }
-
-    .service-card img {
-        height: 220px;
-    }
-
-    .service-card h3 {
-        padding: 22px 22px 7px;
-        font-size: 23px;
-    }
-
-    .service-card p {
-        padding: 0 22px 25px;
-        font-size: 15px;
-    }
-
-    .instagram-card {
-        padding: 45px 22px;
-        border-radius: 18px;
-    }
-
-    .instagram-card h2 {
-        font-size: 30px;
-        line-height: 1.25;
-    }
-
-    .instagram-card p {
-        font-size: 15px;
-        line-height: 1.75;
-    }
-
-    footer {
-        padding: 50px 20px;
-    }
-
-    footer h2 {
-        font-size: 28px;
+    .hero-mobile-content {
+        width: min(720px, 92%) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
 
 /* =========================================================
-   CELULARES PEQUENOS
-   ========================================================= */
-
-@media (max-width: 400px) {
-    .navbar {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
-    .navbar ul {
-        gap: 4px 13px;
-    }
-
-    .navbar li a {
-        font-size: 12px;
-    }
-
-    .hero {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 14px;
-    }
-
-    .sobre,
-    .servicos,
-    .instagram {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .sobre h2,
-    .servicos h2 {
-        font-size: 31px;
-    }
-
-    .service-card img {
-        height: 200px;
-    }
-
-    .instagram-card h2 {
-        font-size: 26px;
-    }
-}
-
-/* =========================================================
-   ACESSIBILIDADE / TOQUE
-   ========================================================= */
-
-@media (hover: none) {
-    .card:hover,
-    .service-card:hover,
-    .btn-nav:hover,
-    .btn-primary:hover,
-    .btn-secondary:hover,
-    .btn-footer:hover {
-        transform: none;
-        box-shadow: none;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-    }
-}
-
-/* Evita qualquer elemento causando rolagem horizontal */
-section,
-header,
-footer,
-main,
-div {
-    max-width: 100%;
-}
-
-table {
-    max-width: 100%;
-}
-
-/* =========================================================
-   RESPONSIVE FINAL — DAVI IVANOV / UNDERGROUND
-   Android + iPhone + tablets
-   ========================================================= */
-
-/* ---------- segurança global ---------- */
-
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow-x: hidden;
-}
-
-body {
-    -webkit-text-size-adjust: 100%;
-    text-rendering: optimizeLegibility;
-}
-
-*,
-*::before,
-*::after {
-    max-width: 100%;
-}
-
-img,
-svg,
-video,
-canvas,
-iframe {
-    max-width: 100%;
-}
-
-button,
-a,
-input,
-select,
-textarea {
-    -webkit-tap-highlight-color: transparent;
-}
-
-button,
-a {
-    touch-action: manipulation;
-}
-
-input,
-select,
-textarea,
-button {
-    max-width: 100%;
-}
-
-/* =========================================================
-   DESKTOP / NOTEBOOK — pequenos ajustes de estabilidade
-   ========================================================= */
-
-@media (max-width: 1200px) {
-    .navbar {
-        padding-left: 3%;
-        padding-right: 3%;
-    }
-
-    .navbar ul {
-        gap: 20px;
-    }
-
-    .hero {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    .sobre,
-    .servicos,
-    .instagram {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-}
-
-/* =========================================================
-   TABLET — 761px a 1000px
-   ========================================================= */
-
-@media (max-width: 1000px) and (min-width: 761px) {
-
-    .navbar {
-        gap: 16px;
-    }
-
-    .navbar ul {
-        gap: 15px;
-    }
-
-    .navbar li a {
-        font-size: 13px;
-    }
-
-    .hero {
-        min-height: 650px;
-        padding: 85px 5%;
-    }
-
-    .hero h1 {
-        font-size: clamp(40px, 6vw, 60px);
-    }
-
-    .hero p {
-        max-width: 650px;
-        font-size: 17px;
-    }
-
-    .hero-buttons {
-        flex-wrap: wrap;
-    }
-
-    .cards,
-    .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .service-card:last-child {
-        grid-column: 1 / -1;
-        width: min(600px, 100%);
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-/* =========================================================
-   CELULAR — 760px
+   CELULAR — IPHONE / ANDROID
    ========================================================= */
 
 @media screen and (max-width: 760px) {
 
-    html {
-        scroll-padding-top: 12px;
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow-x: hidden !important;
+        -webkit-text-size-adjust: 100% !important;
     }
 
     body {
-        width: 100%;
-        min-width: 0;
-        overflow-x: hidden;
+        margin: 0 !important;
     }
 
-    /* ---------- HEADER ---------- */
+    /* =====================================================
+       NAVBAR
+       IMPORTANTE: no celular o menu NÃO fica sticky.
+       Assim o Hero começa abaixo dele e nunca fica escondido.
+       ===================================================== */
 
     header {
-        position: relative;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: visible;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 1000 !important;
     }
 
     .navbar {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
 
-        width: calc(100% - 24px);
-        max-width: 420px;
-        min-height: 0;
-        height: auto;
+        width: calc(100% - 24px) !important;
+        max-width: 420px !important;
+        min-width: 0 !important;
+        height: auto !important;
+        min-height: 0 !important;
 
-        margin: 10px auto 0;
-        padding: 12px 14px;
+        margin: 10px auto 0 !important;
+        padding: 12px 14px !important;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
 
-        border-radius: 18px;
-        box-sizing: border-box;
+        gap: 7px !important;
+        border-radius: 18px !important;
 
-        overflow: visible;
+        z-index: 1000 !important;
+        transform: none !important;
     }
 
     .logo {
-        width: 100%;
-        min-width: 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
 
-        gap: 8px;
-        margin: 0;
-        padding: 0;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 8px !important;
 
-        font-size: 18px;
-        line-height: 1.15;
-        letter-spacing: .7px;
-        white-space: nowrap;
+        white-space: nowrap !important;
     }
 
-    .logo img {
-        width: 44px;
-        height: 44px;
-        flex: 0 0 44px;
-        object-fit: contain;
+    .logo img,
+    .logo svg {
+        width: 42px !important;
+        height: 42px !important;
+        max-width: 42px !important;
+        flex: 0 0 42px !important;
+        object-fit: contain !important;
     }
 
     .navbar ul {
-        width: 100%;
-        min-width: 0;
+        width: 100% !important;
+        max-width: 100% !important;
 
-        margin: 4px 0 0;
-        padding: 0;
+        margin: 4px 0 0 !important;
+        padding: 0 !important;
 
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: center !important;
 
-        gap: 3px 14px;
-        list-style: none;
+        gap: 4px 13px !important;
+
+        list-style: none !important;
     }
 
-    .navbar li {
-        margin: 0;
-        padding: 0;
+    .navbar ul li {
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
+    .navbar ul li a,
     .navbar li a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
 
-        min-height: 32px;
-        padding: 5px 0;
+        min-height: 30px !important;
+        padding: 5px 0 !important;
 
-        font-size: 12px;
-        line-height: 1;
-        white-space: nowrap;
+        font-size: 12px !important;
+        line-height: 1.1 !important;
+        white-space: nowrap !important;
     }
 
-    .btn-nav {
-        width: 100%;
-        max-width: 320px;
-        min-height: 48px;
-        margin-top: 2px;
-        padding: 11px 16px;
+    /* Se o botão de orçamento/agendamento estiver no menu,
+       ele fica abaixo dos links sem aumentar exageradamente o banner. */
+    .navbar .btn-nav {
+        width: min(100%, 320px) !important;
+        max-width: 320px !important;
+        min-height: 44px !important;
+        margin: 2px auto 0 !important;
+        padding: 11px 18px !important;
     }
 
-    /* ---------- HERO ---------- */
+    /* =====================================================
+       HERO
+       Estrutura REAL do seu hero.html:
+       hero
+       └── hero-mobile-content
+           ├── hero-mobile-text
+           ├── hero-mobile-photo
+           │   ├── hero-photo-circle
+           │   └── img
+           └── hero-mobile-button
+       ===================================================== */
 
     .hero {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
+        position: relative !important;
 
-        min-height: 0;
-        height: auto;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
 
-        margin: 0;
-        padding: 30px 14px 45px;
+        height: auto !important;
+        min-height: 0 !important;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin: 0 !important;
+        padding: 26px 14px 42px !important;
 
-        text-align: center;
-        overflow: hidden;
+        display: block !important;
 
-        box-sizing: border-box;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
     }
 
-    .hero-content {
-        position: relative;
-        z-index: 2;
-
-        width: 100%;
-        max-width: 420px;
-        min-width: 0;
-
-        margin: 0 auto;
-        padding: 0;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        gap: 0;
-        box-sizing: border-box;
+    .hero-bg {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 0 !important;
     }
 
-    .tag {
-        width: 100%;
-        margin: 0 0 10px;
-        padding: 0 4px;
+    .hero-mobile-content {
+        position: relative !important;
+        z-index: 2 !important;
 
-        font-size: 10px;
-        line-height: 1.4;
-        letter-spacing: 2px;
-        overflow-wrap: anywhere;
+        width: 100% !important;
+        max-width: 390px !important;
+        min-width: 0 !important;
+
+        min-height: 0 !important;
+        height: auto !important;
+
+        margin: 0 auto !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+
+        gap: 0 !important;
     }
 
-    .hero h1 {
-        width: 100%;
-        max-width: 380px;
+    /* =====================================================
+       FRASE
+       ===================================================== */
 
-        margin: 0 auto;
-        padding: 0;
+    .hero-mobile-text {
+        position: relative !important;
+        z-index: 5 !important;
 
-        font-size: clamp(32px, 9.5vw, 45px);
-        line-height: 1.08;
-        letter-spacing: -.8px;
+        display: block !important;
 
-        overflow-wrap: break-word;
+        width: 100% !important;
+        max-width: 330px !important;
+        min-width: 0 !important;
+
+        margin: 0 auto 17px !important;
+        padding: 0 5px !important;
+
+        color: #d0d0d0 !important;
+
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        line-height: 1.55 !important;
+
+        text-align: center !important;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
-    .hero p {
-        width: 100%;
-        max-width: 340px;
+    /* =====================================================
+       FOTO
+       ===================================================== */
 
-        margin: 17px auto 0;
-        padding: 0 4px;
+    .hero-mobile-photo {
+        position: relative !important;
+        z-index: 3 !important;
 
-        font-size: 14px;
-        line-height: 1.65;
+        width: min(100%, 330px) !important;
+        max-width: 330px !important;
+        min-width: 0 !important;
 
-        overflow-wrap: break-word;
+        height: 330px !important;
+
+        margin: 0 auto 18px !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        align-items: flex-end !important;
+        justify-content: center !important;
+
+        overflow: visible !important;
     }
 
-    .hero-buttons {
-        width: 100%;
-        max-width: 340px;
+    .hero-mobile-photo img {
+        position: relative !important;
+        z-index: 3 !important;
 
-        margin: 25px auto 0;
-        padding: 0;
+        display: block !important;
 
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
+        width: auto !important;
+        max-width: 100% !important;
 
-        gap: 10px;
-        box-sizing: border-box;
+        height: 330px !important;
+        max-height: 330px !important;
+
+        margin: 0 auto !important;
+        padding: 0 !important;
+
+        object-fit: contain !important;
+        object-position: center bottom !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        min-height: 54px;
-        padding: 14px 18px;
+    .hero-photo-circle {
+        position: absolute !important;
+        z-index: 1 !important;
 
-        font-size: 14px;
-        line-height: 1.25;
+        width: 270px !important;
+        height: 270px !important;
+        max-width: 270px !important;
+
+        left: 50% !important;
+        top: 50% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        transform: translate(-50%, -50%) !important;
+
+        border: 1px solid rgba(212, 175, 55, .30) !important;
+        border-radius: 50% !important;
+
+        pointer-events: none !important;
     }
 
-    /* ---------- SOBRE ---------- */
+    /* =====================================================
+       BOTÃO
+       ===================================================== */
 
-    .sobre,
-    .servicos,
-    .instagram {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
+    .hero-mobile-button {
+        position: relative !important;
+        z-index: 5 !important;
 
-        padding: 68px 16px;
-        box-sizing: border-box;
+        display: flex !important;
 
-        overflow: hidden;
+        width: 100% !important;
+        max-width: 330px !important;
+        min-width: 0 !important;
+
+        min-height: 54px !important;
+        height: auto !important;
+
+        margin: 0 auto !important;
+        padding: 15px 20px !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        border-radius: 12px !important;
+
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+
+        text-align: center !important;
+        text-decoration: none !important;
+        white-space: normal !important;
+
+        box-sizing: border-box !important;
     }
 
-    .sobre .container {
-        width: 100%;
-        max-width: 100%;
+    /* =====================================================
+       ESTATÍSTICAS
+       ===================================================== */
+
+    .estatisticas {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
     }
 
-    .sobre .mini {
-        display: block;
-        font-size: 11px;
-        line-height: 1.4;
-        letter-spacing: 2px;
+    .estatisticas .container,
+    .stats-container {
+        width: calc(100% - 28px) !important;
+        max-width: 420px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
-    .sobre h2,
-    .servicos h2 {
-        width: 100%;
-        max-width: 100%;
+    /* =====================================================
+       SEÇÕES / CONTAINERS
+       ===================================================== */
 
-        font-size: clamp(29px, 8.5vw, 38px);
-        line-height: 1.15;
-
-        overflow-wrap: break-word;
-        word-break: normal;
+    main,
+    section,
+    footer {
+        max-width: 100% !important;
+        min-width: 0 !important;
     }
 
-    .sobre h2 {
-        margin-top: 14px;
-        margin-bottom: 19px;
+    .container {
+        width: calc(100% - 28px) !important;
+        max-width: 420px !important;
+        min-width: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
-    .sobre p {
-        width: 100%;
-        max-width: 100%;
-
-        font-size: 15px;
-        line-height: 1.8;
-
-        overflow-wrap: break-word;
-    }
-
+    /* Cards em uma coluna */
     .cards {
-        width: 100%;
-        max-width: 100%;
-
-        margin-top: 34px;
-
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .card {
-        width: 100%;
-        min-width: 0;
-        padding: 25px 20px;
-        border-radius: 16px;
-    }
-
-    .card h3 {
-        font-size: 21px;
-        line-height: 1.3;
-    }
-
-    .card p {
-        font-size: 14px;
-        line-height: 1.75;
-    }
-
-    /* ---------- SERVIÇOS ---------- */
-
-    .servicos h2 {
-        margin-bottom: 34px;
+        grid-template-columns: 1fr !important;
     }
 
     .services-grid {
-        width: 100%;
-        max-width: 100%;
-
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 17px;
+        grid-template-columns: 1fr !important;
     }
 
     .service-card {
-        width: 100%;
-        min-width: 0;
-        border-radius: 17px;
-    }
-
-    .service-card:last-child {
-        grid-column: auto;
-        width: 100%;
+        width: 100% !important;
+        min-width: 0 !important;
     }
 
     .service-card img {
-        display: block;
-        width: 100%;
-        height: 210px;
-        object-fit: cover;
+        width: 100% !important;
+        max-width: 100% !important;
+        object-fit: cover !important;
     }
 
-    .service-card h3 {
-        padding: 20px 20px 7px;
-        font-size: 22px;
-        line-height: 1.25;
-        overflow-wrap: break-word;
+    /* =====================================================
+       NÃO PERMITIR ELEMENTOS ABSOLUTOS ANTIGOS INVADIREM O HERO
+       ===================================================== */
+
+    .hero > .hero-content {
+        position: static !important;
     }
 
-    .service-card p {
-        padding: 0 20px 23px;
-        font-size: 14px;
-        line-height: 1.75;
-        overflow-wrap: break-word;
-    }
-
-    /* ---------- INSTAGRAM ---------- */
-
-    .instagram-card {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-
-        padding: 38px 19px;
-        border-radius: 18px;
-
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    .instagram-card span {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
-
-    .instagram-card h2 {
-        width: 100%;
-        max-width: 100%;
-
-        margin: 14px 0;
-
-        font-size: clamp(25px, 7.5vw, 32px);
-        line-height: 1.2;
-
-        overflow-wrap: anywhere;
-    }
-
-    .instagram-card p {
-        font-size: 14px;
-        line-height: 1.75;
-        overflow-wrap: break-word;
-    }
-
-    /* ---------- FOOTER ---------- */
-
-    footer {
-        width: 100%;
-        max-width: 100%;
-
-        padding: 48px 18px;
-
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    footer h2 {
-        font-size: 27px;
-        line-height: 1.2;
-        overflow-wrap: break-word;
-    }
-
-    footer p {
-        font-size: 14px;
-        line-height: 1.7;
-        overflow-wrap: break-word;
-    }
-
-    .btn-footer {
-        width: 100%;
-        max-width: 320px;
-        min-height: 54px;
-        padding: 14px 18px;
-    }
-
-    /* ---------- TOUCH / HOVER ---------- */
-
-    @media (hover: none) {
-        .card:hover,
-        .service-card:hover,
-        .btn-nav:hover,
-        .btn-primary:hover,
-        .btn-secondary:hover,
-        .btn-footer:hover {
-            transform: none;
-            box-shadow: none;
-        }
+    .hero .hero-content {
+        width: 100% !important;
+        max-width: 390px !important;
+        margin: 0 auto !important;
     }
 }
 
 /* =========================================================
-   CELULARES PEQUENOS — 400PX
+   CELULARES ATÉ 400px
    ========================================================= */
 
 @media screen and (max-width: 400px) {
 
     .navbar {
-        width: calc(100% - 18px);
-        margin-top: 8px;
-        padding: 10px 10px;
-        border-radius: 16px;
-        gap: 6px;
+        width: calc(100% - 18px) !important;
+        margin-top: 8px !important;
+        padding: 10px 10px !important;
+        border-radius: 17px !important;
     }
 
     .logo {
-        font-size: 16px;
-        gap: 7px;
+        font-size: 16px !important;
+        gap: 7px !important;
     }
 
-    .logo img {
-        width: 40px;
-        height: 40px;
-        flex-basis: 40px;
+    .logo img,
+    .logo svg {
+        width: 39px !important;
+        height: 39px !important;
+        max-width: 39px !important;
+        flex-basis: 39px !important;
     }
 
     .navbar ul {
-        gap: 2px 10px;
+        gap: 3px 10px !important;
     }
 
+    .navbar ul li a,
     .navbar li a {
-        min-height: 29px;
-        font-size: 11px;
-    }
-
-    .btn-nav {
-        max-width: 300px;
-        min-height: 46px;
+        font-size: 11px !important;
+        min-height: 28px !important;
     }
 
     .hero {
-        padding: 24px 11px 38px;
+        padding: 22px 10px 34px !important;
     }
 
-    .tag {
-        font-size: 9px;
-        letter-spacing: 1.7px;
+    .hero-mobile-content {
+        max-width: 360px !important;
     }
 
-    .hero h1 {
-        max-width: 340px;
-        font-size: clamp(29px, 9vw, 37px);
+    .hero-mobile-text {
+        max-width: 305px !important;
+        margin-bottom: 14px !important;
+        font-size: 13px !important;
+        line-height: 1.5 !important;
     }
 
-    .hero p {
-        max-width: 305px;
-        margin-top: 14px;
-        font-size: 13px;
-        line-height: 1.6;
+    .hero-mobile-photo {
+        width: 100% !important;
+        max-width: 310px !important;
+        height: 310px !important;
+        margin-bottom: 15px !important;
     }
 
-    .hero-buttons {
-        max-width: 305px;
-        margin-top: 21px;
+    .hero-mobile-photo img {
+        height: 310px !important;
+        max-height: 310px !important;
     }
 
-    .btn-primary,
-    .btn-secondary {
-        min-height: 52px;
-        font-size: 13px;
+    .hero-photo-circle {
+        width: 255px !important;
+        height: 255px !important;
     }
 
-    .sobre,
-    .servicos,
-    .instagram {
-        padding: 58px 13px;
+    .hero-mobile-button {
+        max-width: 310px !important;
+        min-height: 52px !important;
+        font-size: 13px !important;
     }
 
-    .sobre h2,
-    .servicos h2 {
-        font-size: 29px;
-    }
-
-    .sobre p,
-    .card p,
-    .service-card p,
-    .instagram-card p {
-        font-size: 14px;
-    }
-
-    .card {
-        padding: 23px 18px;
-    }
-
-    .service-card img {
-        height: 190px;
-    }
-
-    .service-card h3 {
-        padding-left: 18px;
-        padding-right: 18px;
-        font-size: 21px;
-    }
-
-    .service-card p {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    .instagram-card {
-        padding: 34px 16px;
-    }
-
-    footer {
-        padding: 42px 15px;
+    .container {
+        width: calc(100% - 22px) !important;
     }
 }
 
 /* =========================================================
-   CELULARES MUITO PEQUENOS — 360PX
+   CELULARES ATÉ 360px
    ========================================================= */
 
 @media screen and (max-width: 360px) {
 
     .navbar {
-        width: calc(100% - 12px);
-        padding: 9px 8px;
+        width: calc(100% - 12px) !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
     }
 
     .logo {
-        font-size: 15px;
-    }
-
-    .logo img {
-        width: 37px;
-        height: 37px;
-        flex-basis: 37px;
+        font-size: 15px !important;
     }
 
     .navbar ul {
-        gap: 1px 8px;
+        gap: 2px 7px !important;
     }
 
+    .navbar ul li a,
     .navbar li a {
-        font-size: 10px;
-        min-height: 27px;
+        font-size: 10px !important;
     }
 
     .hero {
-        padding-left: 9px;
-        padding-right: 9px;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
     }
 
-    .hero h1 {
-        max-width: 320px;
-        font-size: 28px;
+    .hero-mobile-text {
+        max-width: 285px !important;
+        font-size: 12.5px !important;
     }
 
-    .hero p {
-        max-width: 285px;
-        font-size: 12.5px;
+    .hero-mobile-photo {
+        max-width: 285px !important;
+        height: 285px !important;
     }
 
-    .hero-buttons {
-        max-width: 285px;
+    .hero-mobile-photo img {
+        height: 285px !important;
+        max-height: 285px !important;
     }
 
-    .btn-primary,
-    .btn-secondary {
-        min-height: 50px;
-        font-size: 12.5px;
+    .hero-photo-circle {
+        width: 230px !important;
+        height: 230px !important;
     }
 
-    .sobre,
-    .servicos,
-    .instagram {
-        padding-left: 11px;
-        padding-right: 11px;
-    }
-
-    .sobre h2,
-    .servicos h2 {
-        font-size: 27px;
-    }
-
-    .service-card img {
-        height: 180px;
+    .hero-mobile-button {
+        max-width: 285px !important;
     }
 }
 
 /* =========================================================
-   IPHONE SAFARI
-   Evita zoom automático nos campos e problemas de viewport.
+   SAFARI IOS
    ========================================================= */
 
 @supports (-webkit-touch-callout: none) {
@@ -1523,20 +598,28 @@ button {
     textarea {
         font-size: 16px;
     }
-
-    .hero {
-        min-height: 0;
-    }
 }
 
 /* =========================================================
-   ACESSIBILIDADE
+   TOUCH / REDUÇÃO DE MOVIMENTO
    ========================================================= */
+
+@media (hover: none) {
+
+    .card:hover,
+    .service-card:hover,
+    .btn-nav:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-footer:hover {
+        transform: none !important;
+    }
+}
 
 @media (prefers-reduced-motion: reduce) {
 
     html {
-        scroll-behavior: auto;
+        scroll-behavior: auto !important;
     }
 
     *,
